@@ -28,6 +28,14 @@ type
     PersonastipoDocumento_id: TLongintField;
     SELPersonas: TZQuery;
     INSPersonas: TZQuery;
+    tugLocalidadesBVISIBLE: TSmallintField;
+    tugLocalidadesCODIGOPOSTAL: TStringField;
+    tugLocalidadesID: TLongintField;
+    tugLocalidadesLOCALIDAD: TStringField;
+    tugSexosBVISIBLE: TSmallintField;
+    tugSexosID: TLongintField;
+    tugSexosSEXO: TStringField;
+    tugTipoDocumento: TZQuery;
     SELPersonasAPELLIDOS: TStringField;
     SELPersonasBVISIBLE: TSmallintField;
     SELPersonasDIRECCION: TStringField;
@@ -40,15 +48,23 @@ type
     SELPersonasSEXO_ID: TLongintField;
     SELPersonasTELEFONO: TStringField;
     SELPersonasTIPODOCUMENTO_ID: TLongintField;
+    tugSexos: TZQuery;
+    tugLocalidades: TZQuery;
+    tugTipoDocumentoBVISIBLE: TSmallintField;
+    tugTipoDocumentoID: TLongintField;
+    tugTipoDocumentoTIPODOCUMENTO: TStringField;
     UPDPersonas: TZQuery;
     DELPersonas: TZQuery;
+    procedure DataModuleCreate(Sender: TObject);
     procedure PersonasAfterInsert(DataSet: TDataSet);
   private
-    { private declarations }
+    procedure initialise;
+    procedure abrirTugs;
   public
     procedure New;
     procedure LoadPersona (refPersona: GUID_ID);
     procedure Save;
+    procedure Delete (refPersona: GUID_ID);
   end;
 
 var
@@ -76,6 +92,33 @@ begin
   PersonasbVisible.AsInteger:= 1;
 end;
 
+procedure TDM_Personas.DataModuleCreate(Sender: TObject);
+begin
+  initialise;
+end;
+
+procedure TDM_Personas.initialise;
+begin
+  abrirTugs;
+end;
+
+procedure TDM_Personas.abrirTugs;
+var
+ i: integer;
+begin
+  for i:= 0 to ComponentCount - 1 do
+  begin
+    if (Components[i] is TZQuery) and (upcase (copy((Components[i] as TZQuery).Name,1,3)) = 'TUG') then
+    begin
+      with (Components[i] as TZQuery) do
+      begin
+        if active then close;
+        Open;
+      end;
+    end;
+  end;
+end;
+
 procedure TDM_Personas.New;
 begin
   DM_General.ReiniciarTabla(Personas);
@@ -98,6 +141,12 @@ end;
 procedure TDM_Personas.Save;
 begin
   DM_General.GrabarDatos(SELPersonas, INSPersonas, UPDPersonas, Personas, 'id');
+end;
+
+procedure TDM_Personas.Delete(refPersona: GUID_ID);
+begin
+  DELPersonas.ParamByName('id').AsString:= refPersona;
+  DELPersonas.ExecSQL;
 end;
 
 end.

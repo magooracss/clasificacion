@@ -1,7 +1,7 @@
 object frmPersonaAE: TfrmPersonaAE
-  Left = 249
+  Left = 463
   Height = 520
-  Top = 249
+  Top = 170
   Width = 1042
   Caption = 'Persona'
   ClientHeight = 520
@@ -276,6 +276,9 @@ object frmPersonaAE: TfrmPersonaAE
           ReadOnly = False
           TabOrder = 0
           TabStop = True
+          LookupDisplay = 'TipoDocumento'
+          LookupField = 'id'
+          LookupSource = dsTipoDocumento
         end
         object DBEdit3: TDBEdit
           Left = 120
@@ -316,6 +319,9 @@ object frmPersonaAE: TfrmPersonaAE
         ReadOnly = False
         TabOrder = 1
         TabStop = True
+        LookupDisplay = 'Sexo'
+        LookupField = 'id'
+        LookupSource = dsSexos
       end
       object Label3: TLabel
         Left = 416
@@ -420,6 +426,9 @@ object frmPersonaAE: TfrmPersonaAE
           ReadOnly = False
           TabOrder = 1
           TabStop = True
+          LookupDisplay = 'Localidad'
+          LookupField = 'id'
+          LookupSource = dsLocalidades
         end
         object Label7: TLabel
           Left = 496
@@ -453,5 +462,20 @@ object frmPersonaAE: TfrmPersonaAE
     DataSet = DM_Personas.Personas
     left = 896
     top = 144
+  end
+  object dsSexos: TDataSource
+    DataSet = DM_Personas.tugSexos
+    left = 752
+    top = 192
+  end
+  object dsTipoDocumento: TDataSource
+    DataSet = DM_Personas.tugTipoDocumento
+    left = 832
+    top = 192
+  end
+  object dsLocalidades: TDataSource
+    DataSet = DM_Personas.tugLocalidades
+    left = 912
+    top = 192
   end
 end

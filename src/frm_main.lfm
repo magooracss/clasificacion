@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 407
+  Left = 434
   Height = 328
-  Top = 287
+  Top = 275
   Width = 782
   Caption = 'Clasificador'
   ClientHeight = 303
@@ -17,8 +17,8 @@ object frmMain: TfrmMain
   LCLVersion = '1.6.4.0'
   object st: TStatusBar
     Left = 0
-    Height = 28
-    Top = 275
+    Height = 24
+    Top = 279
     Width = 782
     Panels = <    
       item
@@ -133,6 +133,7 @@ object frmMain: TfrmMain
       Category = 'Personas'
       Caption = 'Borrar'
       ImageIndex = 6
+      OnExecute = perDELExecute
     end
   end
 end

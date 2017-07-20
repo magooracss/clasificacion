@@ -35,6 +35,7 @@ type
     ToolButton2: TToolButton;
     ToolButton8: TToolButton;
     procedure FormShow(Sender: TObject);
+    procedure perDELExecute(Sender: TObject);
     procedure perNEWExecute(Sender: TObject);
     procedure perUPDExecute(Sender: TObject);
     procedure prg_autorExecute(Sender: TObject);
@@ -55,6 +56,8 @@ uses
   versioninfo
 , frm_about
 , frm_personaae
+, frm_busquedapersonas
+, dmPersonas
 ;
 
 
@@ -64,7 +67,6 @@ procedure TfrmMain.FormShow(Sender: TObject);
 begin
   initialise;
 end;
-
 
 procedure TfrmMain.prg_autorExecute(Sender: TObject);
 var
@@ -123,8 +125,37 @@ begin
 end;
 
 procedure TfrmMain.perUPDExecute(Sender: TObject);
+var
+  scrBus: TfrmBusquedaPersonas;
 begin
-  scrPersonas('{76F50FAB-AEAC-443B-B833-E886BCEE6220}');
+  scrBus:= TfrmBusquedaPersonas.Create(self);
+  try
+    if scrBus.ShowModal = mrOK then
+     scrPersonas(scrBus.personaSeleccionadaID);
+  finally
+    scrBus.Free;
+  end;
+end;
+
+procedure TfrmMain.perDELExecute(Sender: TObject);
+var
+  dmP: TDM_Personas;
+  scrBus: TfrmBusquedaPersonas;
+begin
+  dmP:= TDM_Personas.Create(self);
+  scrBus:= TfrmBusquedaPersonas.Create(self);
+  try
+    if  (scrBus.ShowModal = mrOK)
+        and (MessageDlg ('ATENCION'
+                      , 'Borro a la persona seleccionada?'
+                      , mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+    begin
+      dmP.Delete(scrBus.personaSeleccionadaID);
+    end;
+  finally
+    scrBus.Free;
+    dmP.Free;
+  end;
 end;
 
 

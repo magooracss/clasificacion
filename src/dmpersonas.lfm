@@ -1,8 +1,9 @@
 object DM_Personas: TDM_Personas
+  OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 643
-  HorizontalOffset = 575
-  VerticalOffset = 243
+  HorizontalOffset = 579
+  VerticalOffset = 182
   Width = 847
   object SELPersonas: TZQuery
     Connection = DM_General.cnxBase
@@ -611,6 +612,133 @@ object DM_Personas: TDM_Personas
       FieldKind = fkData
       FieldName = 'bVisible'
       Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object tugTipoDocumento: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TiposDocumentos'
+      'WHERE (bVisible = 1)'
+    )
+    Params = <>
+    left = 656
+    top = 72
+    object tugTipoDocumentoID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object tugTipoDocumentoTIPODOCUMENTO: TStringField
+      FieldKind = fkData
+      FieldName = 'TIPODOCUMENTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tugTipoDocumentoBVISIBLE: TSmallintField
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object tugSexos: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT *'
+      'FROM sexos'
+      'WHERE (bVisible = 1)'
+    )
+    Params = <>
+    left = 656
+    top = 152
+    object tugSexosID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object tugSexosSEXO: TStringField
+      FieldKind = fkData
+      FieldName = 'SEXO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object tugSexosBVISIBLE: TSmallintField
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object tugLocalidades: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT *'
+      'FROM Localidades'
+      'WHERE (bVisible = 1)'
+    )
+    Params = <>
+    left = 656
+    top = 216
+    object tugLocalidadesID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object tugLocalidadesLOCALIDAD: TStringField
+      FieldKind = fkData
+      FieldName = 'LOCALIDAD'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 800
+    end
+    object tugLocalidadesCODIGOPOSTAL: TStringField
+      FieldKind = fkData
+      FieldName = 'CODIGOPOSTAL'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object tugLocalidadesBVISIBLE: TSmallintField
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False

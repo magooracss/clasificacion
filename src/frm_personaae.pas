@@ -24,6 +24,9 @@ type
     DBEdit5: TDBEdit;
     DBEdit6: TDBEdit;
     ds_personas: TDataSource;
+    dsSexos: TDataSource;
+    dsTipoDocumento: TDataSource;
+    dsLocalidades: TDataSource;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     Label1: TLabel;
@@ -67,6 +70,9 @@ begin
   dmPer:= TDM_Personas.Create(self);
 
   ds_personas.DataSet:= dmPer.Personas;
+  dsLocalidades.DataSet:= dmPer.tugLocalidades;
+  dsSexos.DataSet:= dmPer.tugSexos;
+  dsTipoDocumento.DataSet:= dmPer.tugTipoDocumento;
 end;
 
 procedure TfrmPersonaAE.btnCancelarClick(Sender: TObject);
