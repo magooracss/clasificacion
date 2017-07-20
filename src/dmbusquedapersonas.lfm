@@ -1,0 +1,205 @@
+object DM_BusquedaPersonas: TDM_BusquedaPersonas
+  OldCreateOrder = False
+  Height = 516
+  HorizontalOffset = 603
+  VerticalOffset = 191
+  Width = 515
+  object Resultados: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Size = 38
+      end    
+      item
+        Name = 'Apellidos'
+        DataType = ftString
+        Size = 300
+      end    
+      item
+        Name = 'Nombres'
+        DataType = ftString
+        Size = 300
+      end    
+      item
+        Name = 'Documento'
+        DataType = ftString
+        Size = 50
+      end>
+    PacketRecords = 0
+    left = 77
+    top = 53
+    object Resultadosid: TStringField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object ResultadosApellidos: TStringField
+      FieldKind = fkData
+      FieldName = 'Apellidos'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object ResultadosNombres: TStringField
+      FieldKind = fkData
+      FieldName = 'Nombres'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object ResultadosDocumento: TStringField
+      FieldKind = fkData
+      FieldName = 'Documento'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+  object qPersonaApellido: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT id'
+      '           , apellidos'
+      '           , nombres'
+      '           , documento'
+      'FROM Personas'
+      'WHERE (bVisible = 1)'
+      ' and (UPPER(apellidos) LIKE ''%''||UPPER(:parametro)||''%'') '
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 80
+    top = 232
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    object qPersonaApellidoID: TStringField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qPersonaApellidoAPELLIDOS: TStringField
+      FieldKind = fkData
+      FieldName = 'APELLIDOS'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1200
+    end
+    object qPersonaApellidoNOMBRES: TStringField
+      FieldKind = fkData
+      FieldName = 'NOMBRES'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1200
+    end
+    object qPersonaApellidoDOCUMENTO: TStringField
+      FieldKind = fkData
+      FieldName = 'DOCUMENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+  end
+  object qPersonaDocumento: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT id'
+      '           , apellidos'
+      '           , nombres'
+      '           , documento'
+      'FROM Personas'
+      'WHERE (bVisible = 1)'
+      ' and (UPPER(documento) LIKE ''%''||UPPER(:parametro)||''%'') '
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 77
+    top = 320
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    object qPersonaApellidoID1: TStringField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qPersonaApellidoAPELLIDOS1: TStringField
+      FieldKind = fkData
+      FieldName = 'APELLIDOS'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1200
+    end
+    object qPersonaApellidoNOMBRES1: TStringField
+      FieldKind = fkData
+      FieldName = 'NOMBRES'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1200
+    end
+    object qPersonaApellidoDOCUMENTO1: TStringField
+      FieldKind = fkData
+      FieldName = 'DOCUMENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+  end
+end
