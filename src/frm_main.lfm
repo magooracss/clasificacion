@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 434
+  Left = 330
   Height = 328
-  Top = 275
+  Top = 276
   Width = 782
   Caption = 'Clasificador'
   ClientHeight = 303
@@ -12,6 +12,8 @@ object frmMain: TfrmMain
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
   Menu = MainMenu1
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poScreenCenter
   LCLVersion = '1.6.4.0'
@@ -58,13 +60,37 @@ object frmMain: TfrmMain
       Style = tbsSeparator
     end
     object ToolButton8: TToolButton
-      Left = 101
+      Left = 196
       Height = 80
       Top = 2
       Width = 8
       Caption = 'ToolButton8'
       Style = tbsSeparator
     end
+    object ToolButton3: TToolButton
+      Left = 101
+      Top = 2
+      Action = carr_SEL
+    end
+  end
+  object edCarrera: TEdit
+    Left = 0
+    Height = 32
+    Top = 82
+    Width = 782
+    Align = alTop
+    Color = clSkyBlue
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -20
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
+    TabStop = False
+    TabOrder = 2
+    Text = '--'
   end
   object MainMenu1: TMainMenu
     Images = DM_General.ImgAccionesMenu
@@ -92,6 +118,24 @@ object frmMain: TfrmMain
       end
       object MenuItem7: TMenuItem
         Action = perDEL
+      end
+    end
+    object MenuItem9: TMenuItem
+      Caption = 'Carreras'
+      object MenuItem10: TMenuItem
+        Action = carr_NEW
+      end
+      object MenuItem11: TMenuItem
+        Action = carr_UPD
+      end
+      object MenuItem12: TMenuItem
+        Action = carr_DEL
+      end
+      object MenuItem13: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem14: TMenuItem
+        Action = carr_SEL
       end
     end
   end
@@ -134,6 +178,30 @@ object frmMain: TfrmMain
       Caption = 'Borrar'
       ImageIndex = 6
       OnExecute = perDELExecute
+    end
+    object carr_NEW: TAction
+      Category = 'Carreras'
+      Caption = 'Nueva'
+      ImageIndex = 27
+      OnExecute = carr_NEWExecute
+    end
+    object carr_UPD: TAction
+      Category = 'Carreras'
+      Caption = 'Ver/Modificar'
+      ImageIndex = 26
+      OnExecute = carr_UPDExecute
+    end
+    object carr_DEL: TAction
+      Category = 'Carreras'
+      Caption = 'Borrar'
+      ImageIndex = 28
+      OnExecute = carr_DELExecute
+    end
+    object carr_SEL: TAction
+      Category = 'Carreras'
+      Caption = 'Seleccionar'
+      ImageIndex = 35
+      OnExecute = carr_SELExecute
     end
   end
 end

@@ -18,7 +18,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="2"/>
+      <BuildNr Value="4"/>
       <Language Value="040A"/>
       <StringTable CompanyName="RACSS Programación de Carlos Enrique Rodriguez" LegalCopyright="Carlos Enrique Rodriguez" LegalTrademarks="RACSS Programación de Carlos Enrique Rodriguez" ProductVersion=""/>
     </VersionInfo>
@@ -56,7 +56,7 @@
         <PackageName Value="LCL"/>
       </Item7>
     </RequiredPackages>
-    <Units Count="9">
+    <Units Count="12">
       <Unit0>
         <Filename Value="clasificador.pas"/>
         <IsPartOfProject Value="True"/>
@@ -110,6 +110,26 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit8>
+      <Unit9>
+        <Filename Value="dmcarreras.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_Carreras"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="frm_carrerasae.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmCarreraAE"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="frm_busquedacarreras.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmBusquedaCarreras"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit11>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

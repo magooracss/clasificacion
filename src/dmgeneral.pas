@@ -610,7 +610,7 @@ var
 begin
   with elReporte do
   begin
-    ruta:= LeerDato (SECCION_APP ,RUTA_LISTADOS) ;
+    ruta:= LeerDato (SECCION_APP , RUTA_LISTADOS) ;
     LoadFromFile(ruta+ Reporte);
     frDataset.DataSet:= elDataset;
   end;

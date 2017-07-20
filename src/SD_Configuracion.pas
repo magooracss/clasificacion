@@ -10,29 +10,17 @@ const
   ERROR_CFG= 'ErrorLecturaCFG';
 
   SECCION_APP = 'APLICACION';
-  SECCION_SCR = 'PANTALLAS';
-  SECCION_FI = 'FACTURA_IMPRESA';
+  RUTA_LISTADOS = 'RUTA_LISTADOS';
 
   SERVIDOR_FB = 'RUTA_FB';  //Ruta al archivo de BD
   BASE_HOST='HOST';         //Dirección IP del HOST
 
   DIR_SERVIDOR = 'SERVIDOR';        //Ruta al archivo ejecutable
-  RUTA_SERV_FE = 'SERV_FE'; //SERVIDOR Factura Electrónica
-  RUTA_SERV_ARCON = 'SERV_ARCON'; //Servidor de facturación ARCON
-  RUTA_LISTADOS = 'RUTA_LISTADOS';
 
-  CFG_SEP_DECIMAL = 'SEP_DECIMAL';
-  CFG_SEP_MILES='SEP_MILES';
-  CFGD_IVA_PROD='IVA_PROD';
-  CFGD_IVA_ID='IVA_ID';
-  CFG_PTO_VTA = 'PTA_VTA';
-  ART_BULTOS='ART_BULTOS'; //Se trata a cada artículo como un bulto
-  PG_DESTINO='PG_DESTINO'; //Pone por default si el pago se hace en destino
-  CFG_ES_SERVICIO = 'VTA_SERVICIO'; //Comprobante Vta es servicio
-  CFG_ES_PRODUCTO = 'VTA_PRODUCTO'; //Comprobante Vta es producto
-  T_FACTURACION = 'TIPO_FACTURACION'; //Tipo de facturación propia. Si hago factura C o AB
+  CARRERA_ACTIVA = 'CARRERA';
 
   //Factura Impresa
+  SECCION_FI = 'FACTURA_IMPRESA';
   FI_LOGO = 'FI_LOGO';
   FI_RAZON_SOCIAL = 'FI_RAZON_SOCIAL';
   FI_DOMICILIO = 'FI_DOMICILIO';
@@ -41,18 +29,6 @@ const
   FI_IB = 'FI_IB';
   FI_INIACT = 'FI_INIACT';
   FI_FACTURA = 'FI_FACTURA';
-
-
-  PROD_BUS_CRIT = 'P_BUS_CRIT';
-  LOCALIDAD = 'LOCALIDAD'; //Localidad por defecto para los domicilios
-  CHK_REF_GRID = 'REFRESCAR_GRILLA';
-
-  CHK_ED_REC_INT = 'HDR_ED_RECIBOS';
-  CB_HDR_DEF_FP = 'HDR_FORMAPAGO';
-
-
-  CFG_PROD_DATO_AD = 'PROD_DATO_AD'; //Datos adicionales de un producto que se muestran por defecto
-
 
 
   function AbrirArchivo: TIniFile;

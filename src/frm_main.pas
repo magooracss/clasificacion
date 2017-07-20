@@ -6,13 +6,24 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus,
-  ActnList, ComCtrls, dmgeneral;
+  ActnList, ComCtrls, StdCtrls, dmgeneral, dmcarreras;
 
 type
 
   { TfrmMain }
 
   TfrmMain = class(TForm)
+    carr_SEL: TAction;
+    carr_UPD: TAction;
+    carr_DEL: TAction;
+    carr_NEW: TAction;
+    edCarrera: TEdit;
+    MenuItem10: TMenuItem;
+    MenuItem11: TMenuItem;
+    MenuItem12: TMenuItem;
+    MenuItem13: TMenuItem;
+    MenuItem14: TMenuItem;
+    MenuItem9: TMenuItem;
     perDEL: TAction;
     perUPD: TAction;
     perNEW: TAction;
@@ -33,7 +44,14 @@ type
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
     ToolButton8: TToolButton;
+    procedure carr_DELExecute(Sender: TObject);
+    procedure carr_NEWExecute(Sender: TObject);
+    procedure carr_SELExecute(Sender: TObject);
+    procedure carr_UPDExecute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure perDELExecute(Sender: TObject);
     procedure perNEWExecute(Sender: TObject);
@@ -41,8 +59,12 @@ type
     procedure prg_autorExecute(Sender: TObject);
     procedure prg_salirExecute(Sender: TObject);
   private
+    _carreraActiva: GUID_ID;
+    dmCarrera: TDM_Carreras;
     procedure initialise;
     procedure scrPersonas (refPersona: GUID_ID);
+    procedure SeleccionarCarrera (refCarrera: GUID_ID);
+    procedure scrCarrera (refCarrera: GUID_ID);
   public
     { public declarations }
   end;
@@ -58,6 +80,9 @@ uses
 , frm_personaae
 , frm_busquedapersonas
 , dmPersonas
+, SD_Configuracion
+, frm_busquedacarreras
+, frm_carrerasae
 ;
 
 
@@ -66,6 +91,21 @@ uses
 procedure TfrmMain.FormShow(Sender: TObject);
 begin
   initialise;
+end;
+
+procedure TfrmMain.FormCreate(Sender: TObject);
+begin
+  dmCarrera:= TDM_Carreras.Create(self);
+end;
+
+procedure TfrmMain.FormDestroy(Sender: TObject);
+begin
+  if (_carreraActiva <> EmptyStr) then
+  begin
+    EscribirDato(SECCION_APP, CARRERA_ACTIVA,_carreraActiva);
+  end;
+
+  dmCarrera.Free;
 end;
 
 procedure TfrmMain.prg_autorExecute(Sender: TObject);
@@ -89,6 +129,7 @@ procedure TfrmMain.initialise;
 Var
   NroVersion: String;
   Info: TVersionInfo;
+  tmpID: String;
 begin
   Info := TVersionInfo.Create;
   Info.Load(HINSTANCE);
@@ -100,6 +141,19 @@ begin
 
   st.Panels[0].Text:= '  v:' + NroVersion;
   st.Panels[1].Text:= FormatDateTime('dd/mm/yyyy', now)+ '        ';
+
+  tmpID:=  LeerDato(SECCION_APP, CARRERA_ACTIVA);
+  if (tmpID = EmptyStr) then
+  begin
+    edCarrera.Text:= EmptyStr;
+    _carreraActiva:= GUIDNULO;
+  end
+  else
+  begin
+    SeleccionarCarrera(tmpID);
+
+  end;
+
 end;
 
 
@@ -158,6 +212,85 @@ begin
   end;
 end;
 
+(*******************************************************************************
+***  CARRERAS
+*******************************************************************************)
 
+procedure TfrmMain.SeleccionarCarrera(refCarrera: GUID_ID);
+begin
+  _carreraActiva:= refCarrera;
+  dmCarrera.LoadCarrera(_carreraActiva);
+  edCarrera.Text:= dmCarrera.CarreraNombre.AsString;
+  EscribirDato(SECCION_APP, CARRERA_ACTIVA,_carreraActiva);
+end;
+
+procedure TfrmMain.scrCarrera(refCarrera: GUID_ID);
+var
+  scr: TfrmCarreraAE;
+begin
+  scr:= TfrmCarreraAE.Create(self);
+  try
+    scr.carreraID:= refCarrera;
+    if (scr.ShowModal = mrOK) then
+    begin
+      SeleccionarCarrera(scr.carreraID);
+    end;
+  finally
+    scr.Free;
+  end;
+end;
+
+procedure TfrmMain.carr_NEWExecute(Sender: TObject);
+begin
+  scrCarrera (GUIDNULO);
+end;
+
+procedure TfrmMain.carr_DELExecute(Sender: TObject);
+var
+  scrBus: TfrmBusquedaCarreras;
+begin
+  scrBus:=  TfrmBusquedaCarreras.Create(self);
+  try
+    if ((scrBus.ShowModal = mrOK)
+              and (MessageDlg ('ATENCION'
+                     , 'Borro la carrera seleccionada?'
+                     , mtConfirmation, [mbYes, mbNo],0 ) = mrYes)) then
+    begin
+      dmCarrera.DeleteCarrera (scrBus.carreraSeleccionadaID);
+    end;
+  finally
+    scrBus.Free;
+  end;
+end;
+
+procedure TfrmMain.carr_UPDExecute(Sender: TObject);
+var
+  scrBus: TfrmBusquedaCarreras;
+begin
+  scrBus:=  TfrmBusquedaCarreras.Create(self);
+  try
+    if scrBus.ShowModal = mrOK then
+    begin
+      scrCarrera (scrBus.carreraSeleccionadaID);
+    end;
+  finally
+    scrBus.Free;
+  end;
+end;
+
+procedure TfrmMain.carr_SELExecute(Sender: TObject);
+var
+  scrBus: TfrmBusquedaCarreras;
+begin
+  scrBus:=  TfrmBusquedaCarreras.Create(self);
+  try
+    if scrBus.ShowModal = mrOK then
+    begin
+      SeleccionarCarrera (scrBus.carreraSeleccionadaID);
+    end;
+  finally
+    scrBus.Free;
+  end;
+end;
 end.
 

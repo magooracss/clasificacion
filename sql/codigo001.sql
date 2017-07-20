@@ -179,3 +179,48 @@ INSERT INTO Sexos
 (id, sexo, bVisible)
 VALUES
 (2, 'Femenino', 1);
+
+CREATE TABLE Carreras (
+	id	"guid"	not null primary key
+,	nombre	varchar(500)
+,	fecha	date
+,	bVisible smallint default 1
+);
+
+CREATE TABLE Distancias(
+	id	"guid"	not null primary key
+,	carrera_id	"guid"
+,	nombre	varchar(500)
+,	hLargada	time
+,	bVisible smallint default 1
+);
+
+CREATE TABLE CategoriasCarrera(
+	id	"guid"	not null primary key
+,	carrera_id	"guid"
+, 	categoria_id integer default 0
+, 	bVisible smallint default 1
+);
+
+CREATE TABLE Categorias (
+	id	  integer not null primary key
+,	nombre	varchar(500)
+,	bVisible  smallint default 1	
+);
+
+CREATE GENERATOR CategoriasID;
+
+SET GENERATOR CategoriasID TO 0;
+
+SET TERM ^ ;
+
+CREATE TRIGGER CategoriasID FOR Categorias
+BEFORE INSERT POSITION 0
+AS 
+BEGIN 
+    If (New.id = -1) then
+   New.id = GEN_ID(CategoriasID,1);
+END^
+
+SET TERM ; ^  
+
