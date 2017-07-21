@@ -1,9 +1,10 @@
 object DM_Carreras: TDM_Carreras
+  OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 538
   HorizontalOffset = 556
   VerticalOffset = 146
-  Width = 631
+  Width = 699
   object Carrera: TRxMemoryData
     FieldDefs = <    
       item
@@ -373,7 +374,7 @@ object DM_Carreras: TDM_Carreras
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      DisplayFormat = 'HH:MM:SS'
+      DisplayFormat = 'HH:MM'
     end
     object DistanciasbVisible: TLongintField
       FieldKind = fkData
@@ -525,6 +526,7 @@ object DM_Carreras: TDM_Carreras
       'SET'
       'hLargada = :hLargada'
       ', nombre = :nombre'
+      ', carrera_id = :carrera_id'
       ', bVisible = :bVisible'
       'WHERE (id = :id)'
     )
@@ -537,6 +539,11 @@ object DM_Carreras: TDM_Carreras
       item
         DataType = ftUnknown
         Name = 'nombre'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
         ParamType = ptUnknown
       end    
       item
@@ -560,6 +567,11 @@ object DM_Carreras: TDM_Carreras
       item
         DataType = ftUnknown
         Name = 'nombre'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
         ParamType = ptUnknown
       end    
       item
@@ -601,6 +613,7 @@ object DM_Carreras: TDM_Carreras
       'SELECT *'
       'FROM Distancias'
       'WHERE (carrera_id = :carrera_id)'
+      '             and (bVisible = 1)'
     )
     Params = <    
       item
@@ -659,6 +672,446 @@ object DM_Carreras: TDM_Carreras
       FieldKind = fkData
       FieldName = 'BVISIBLE'
       Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object CategoriasCarrera: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Size = 38
+      end    
+      item
+        Name = 'carrera_id'
+        DataType = ftString
+        Size = 38
+      end    
+      item
+        Name = 'categoria_id'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'lxCategoria'
+        DataType = ftString
+        Size = 500
+      end>
+    AfterInsert = CategoriasCarreraAfterInsert
+    PacketRecords = 0
+    left = 376
+    top = 40
+    object CategoriasCarreraid: TStringField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object CategoriasCarreracarrera_id: TStringField
+      FieldKind = fkData
+      FieldName = 'carrera_id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object CategoriasCarreracategoria_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'categoria_id'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object CategoriasCarrerabVisible: TLongintField
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object CategoriasCarreralxCategoria: TStringField
+      FieldKind = fkData
+      FieldName = 'lxCategoria'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+  end
+  object SELCategoriasCarrera: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT CD.*'
+      '            ,C.nombre as lxCategoria'
+      'FROM CategoriasCarrera CD'
+      '    left join Categorias C  on C.id = CD.categoria_id'
+      'WHERE (CD.id = :id)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 376
+    top = 120
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object SELCategoriasCarreraID: TStringField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object SELCategoriasCarreraCARRERA_ID: TStringField
+      FieldKind = fkData
+      FieldName = 'CARRERA_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object SELCategoriasCarreraCATEGORIA_ID: TLongintField
+      FieldKind = fkData
+      FieldName = 'CATEGORIA_ID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCategoriasCarreraBVISIBLE: TSmallintField
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCategoriasCarreraLXCATEGORIA: TStringField
+      FieldKind = fkData
+      FieldName = 'LXCATEGORIA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+  end
+  object INSCategoriasCarrera: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'INSERT INTO CategoriasCarrera'
+      '(id, carrera_id, categoria_id, bVisible)'
+      'VALUES'
+      '(:id, :carrera_id, :categoria_id, :bVisible)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'categoria_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end>
+    left = 376
+    top = 192
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'categoria_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end>
+  end
+  object UPDCategoriasCarrera: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'UPDATE CategoriasCarrera'
+      'SET'
+      '  carrera_id = :carrera_id'
+      ', categoria_id = :categoria_id'
+      ', bVisible = :bVisible'
+      'WHERE (id = :id)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'categoria_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 376
+    top = 264
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'categoria_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+  end
+  object DELCategoriasCarrera: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'UPDATE CategoriasCarrera'
+      'SET bVisible = 0'
+      'WHERE (id = :id)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 376
+    top = 344
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+  end
+  object qCategoriasCarrera: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT CD.*'
+      '            ,C.nombre as lxCategoria'
+      'FROM CategoriasCarrera CD'
+      '    left join Categorias C  on C.id = CD.categoria_id'
+      'WHERE (CD.carrera_id = :carrera_id)'
+      '             and (CD.bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end>
+    left = 376
+    top = 440
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end>
+    object qCategoriasCarreraID: TStringField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qCategoriasCarreraCARRERA_ID: TStringField
+      FieldKind = fkData
+      FieldName = 'CARRERA_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qCategoriasCarreraCATEGORIA_ID: TLongintField
+      FieldKind = fkData
+      FieldName = 'CATEGORIA_ID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qCategoriasCarreraBVISIBLE: TSmallintField
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qCategoriasCarreraLXCATEGORIA: TStringField
+      FieldKind = fkData
+      FieldName = 'LXCATEGORIA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+  end
+  object qCategorias: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT *'
+      'FROM Categorias'
+      'WHERE (bVisible = 1 )'
+    )
+    Params = <>
+    left = 576
+    top = 440
+    object qCategoriasID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qCategoriasNOMBRE: TStringField
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qCategoriasBVISIBLE: TSmallintField
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object Categorias: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'nombre'
+        DataType = ftString
+        Size = 500
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+      end>
+    AfterInsert = CategoriasAfterInsert
+    PacketRecords = 0
+    left = 584
+    top = 40
+    object Categoriasid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Categoriasnombre: TStringField
+      FieldKind = fkData
+      FieldName = 'nombre'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object CategoriasbVisible: TLongintField
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False

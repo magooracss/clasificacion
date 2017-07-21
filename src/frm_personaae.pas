@@ -5,7 +5,7 @@ unit frm_personaae;
 interface
 
 uses
-  Classes, SysUtils, db, FileUtil, rxlookup, DBDateTimePicker, Forms, Controls,
+  Classes, SysUtils, db, FileUtil, rxlookup, Forms, Controls,
   Graphics, Dialogs, ExtCtrls, DbCtrls, StdCtrls, ComCtrls, Buttons, DBExtCtrls,
   dmPersonas, dmgeneral;
 

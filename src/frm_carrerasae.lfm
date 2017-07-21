@@ -1,10 +1,10 @@
 object frmCarreraAE: TfrmCarreraAE
   Left = 556
-  Height = 542
+  Height = 567
   Top = 184
   Width = 792
   Caption = 'Carrera'
-  ClientHeight = 542
+  ClientHeight = 567
   ClientWidth = 792
   Font.CharSet = ANSI_CHARSET
   Font.Height = -17
@@ -71,7 +71,7 @@ object frmCarreraAE: TfrmCarreraAE
   object Panel2: TPanel
     Left = 0
     Height = 80
-    Top = 462
+    Top = 487
     Width = 792
     Align = alBottom
     ClientHeight = 80
@@ -251,6 +251,7 @@ object frmCarreraAE: TfrmCarreraAE
         Top = 8
         Width = 120
         Caption = 'Nueva'
+        OnClick = btnDistanciaNEWClick
         TabOrder = 0
       end
       object btnDistanciaUPD: TBitBtn
@@ -259,6 +260,7 @@ object frmCarreraAE: TfrmCarreraAE
         Top = 64
         Width = 120
         Caption = 'Modificar'
+        OnClick = btnDistanciaUPDClick
         TabOrder = 1
       end
       object btnDistanciaDEL: TBitBtn
@@ -267,6 +269,7 @@ object frmCarreraAE: TfrmCarreraAE
         Top = 120
         Width = 120
         Caption = 'Borrar'
+        OnClick = btnDistanciaDELClick
         TabOrder = 2
       end
     end
@@ -399,54 +402,61 @@ object frmCarreraAE: TfrmCarreraAE
   end
   object Panel5: TPanel
     Left = 0
-    Height = 205
+    Height = 202
     Top = 285
     Width = 792
-    Align = alTop
-    ClientHeight = 205
+    Align = alClient
+    ClientHeight = 202
     ClientWidth = 792
     TabOrder = 3
     object Panel6: TPanel
       Left = 654
-      Height = 176
+      Height = 173
       Top = 28
       Width = 137
       Align = alRight
-      ClientHeight = 176
+      ClientHeight = 173
       ClientWidth = 137
       TabOrder = 0
-      object btnDistanciaNEW1: TBitBtn
+      object btnCategoriaNEW: TBitBtn
         Left = 8
         Height = 46
-        Top = 8
+        Top = 32
         Width = 120
         Caption = 'Nueva'
+        OnClick = btnCategoriaNEWClick
         TabOrder = 0
       end
-      object btnDistanciaUPD1: TBitBtn
+      object btnCategoriaDEL: TBitBtn
         Left = 8
         Height = 46
-        Top = 64
-        Width = 120
-        Caption = 'Modificar'
-        TabOrder = 1
-      end
-      object btnDistanciaDEL1: TBitBtn
-        Left = 8
-        Height = 46
-        Top = 120
+        Top = 96
         Width = 120
         Caption = 'Borrar'
-        TabOrder = 2
+        OnClick = btnCategoriaDELClick
+        TabOrder = 1
       end
     end
     object GrillaDistancias1: TRxDBGrid
       Left = 1
-      Height = 176
+      Height = 173
       Top = 28
       Width = 653
       TitleButtons = True
       AutoSort = True
+      Columns = <      
+        item
+          Title.Alignment = taCenter
+          Title.Orientation = toHorizontal
+          Title.Caption = 'Categorias'
+          Width = 649
+          FieldName = 'lxCategoria'
+          EditButtons = <>
+          Filter.DropDownRows = 0
+          Filter.EmptyValue = '(Todos)'
+          Filter.EmptyFont.Style = [fsItalic]
+          Filter.ItemIndex = -1
+        end>
       KeyStrokes = <      
         item
           Command = rxgcShowFindDlg
@@ -512,6 +522,7 @@ object frmCarreraAE: TfrmCarreraAE
       FocusColor = clRed
       SelectedColor = clHighlight
       GridLineStyle = psSolid
+      DataSource = ds_categorias
       FixedCols = 0
       Font.CharSet = ANSI_CHARSET
       Font.Height = -17
@@ -548,6 +559,11 @@ object frmCarreraAE: TfrmCarreraAE
   object ds_distancias: TDataSource
     DataSet = DM_Carreras.Distancias
     left = 440
+    top = 272
+  end
+  object ds_categorias: TDataSource
+    DataSet = DM_Carreras.CategoriasCarrera
+    left = 504
     top = 272
   end
 end

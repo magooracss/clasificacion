@@ -1,11 +1,11 @@
 object frmMain: TfrmMain
   Left = 330
-  Height = 328
+  Height = 445
   Top = 276
-  Width = 782
+  Width = 828
   Caption = 'Clasificador'
-  ClientHeight = 303
-  ClientWidth = 782
+  ClientHeight = 420
+  ClientWidth = 828
   Font.CharSet = ANSI_CHARSET
   Font.Height = -17
   Font.Name = 'Arial'
@@ -19,9 +19,9 @@ object frmMain: TfrmMain
   LCLVersion = '1.6.4.0'
   object st: TStatusBar
     Left = 0
-    Height = 24
-    Top = 279
-    Width = 782
+    Height = 28
+    Top = 392
+    Width = 828
     Panels = <    
       item
         Width = 200
@@ -36,7 +36,7 @@ object frmMain: TfrmMain
     Left = 0
     Height = 82
     Top = 0
-    Width = 782
+    Width = 828
     AutoSize = True
     ButtonHeight = 80
     ButtonWidth = 92
@@ -77,7 +77,7 @@ object frmMain: TfrmMain
     Left = 0
     Height = 32
     Top = 82
-    Width = 782
+    Width = 828
     Align = alTop
     Color = clSkyBlue
     Font.CharSet = ANSI_CHARSET
