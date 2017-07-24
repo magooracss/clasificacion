@@ -169,7 +169,8 @@ begin
   scr:= TfrmCategoriasCarreraAE.Create(self);
   try
     scr.IDcarrera:= _carreraID;
-    scr.ShowModal;
+    if scr.ShowModal = mrOK then
+       dmCarr.LoadCategorias(_carreraID);
   finally
     scr.Free;
   end;

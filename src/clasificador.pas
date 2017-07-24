@@ -9,7 +9,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, rxnew, datetimectrls, zcomponent, frm_main, dmgeneral, frm_personaae,
   dmPersonas, dmcarreras, frm_carrerasae, frm_busquedacarreras,
-  frm_distanciasae, frm_categoriascarreraae
+  frm_distanciasae, frm_categoriascarreraae, frm_categoriasae
   { you can add units after this };
 
 {$R *.res}
@@ -21,6 +21,7 @@ begin
   Application.CreateForm(TDM_General, DM_General);
   Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(TfrmCategoriasCarreraAE, frmCategoriasCarreraAE);
+  Application.CreateForm(TfrmCategoriasAE, frmCategoriasAE);
   Application.Run;
 end.
 

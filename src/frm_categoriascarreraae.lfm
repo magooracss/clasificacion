@@ -6,6 +6,11 @@ object frmCategoriasCarreraAE: TfrmCategoriasCarreraAE
   Caption = 'Categorias'
   ClientHeight = 187
   ClientWidth = 802
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -17
+  Font.Name = 'Arial'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
@@ -172,7 +177,7 @@ object frmCategoriasCarreraAE: TfrmCategoriasCarreraAE
   end
   object RxDBLookupCombo1: TRxDBLookupCombo
     Left = 24
-    Height = 32
+    Height = 31
     Top = 56
     Width = 632
     AutoSize = True
@@ -245,6 +250,7 @@ object frmCategoriasCarreraAE: TfrmCategoriasCarreraAE
       000000000000000000007F000006823C174F935C38C2935E3AD98F5430CF8946
       2193783202200000000000000000000000000000000000000000
     }
+    OnClick = btnAgregarClick
     TabOrder = 2
   end
   object ds_categoriaCarrera: TDataSource

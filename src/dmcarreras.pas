@@ -26,6 +26,7 @@ type
     CategoriasCarreralxCategoria: TStringField;
     Categoriasid: TLongintField;
     Categoriasnombre: TStringField;
+    DELCategorias: TZQuery;
     DELDistancias: TZQuery;
     DELCategoriasCarrera: TZQuery;
     DistanciasbVisible: TLongintField;
@@ -33,6 +34,7 @@ type
     DistanciashLargada: TDateTimeField;
     Distanciasid: TStringField;
     DistanciasNombre: TStringField;
+    INSCategorias: TZQuery;
     INSDistancia: TZQuery;
     INSCategoriasCarrera: TZQuery;
     qCategorias: TZQuery;
@@ -56,11 +58,15 @@ type
     CategoriasCarrera: TRxMemoryData;
     SELCarrera: TZQuery;
     qCarreras: TZQuery;
+    SELCategorias: TZQuery;
+    SELCategoriasBVISIBLE: TSmallintField;
     SELCategoriasCarreraBVISIBLE: TSmallintField;
     SELCategoriasCarreraCARRERA_ID: TStringField;
     SELCategoriasCarreraCATEGORIA_ID: TLongintField;
     SELCategoriasCarreraID: TStringField;
     SELCategoriasCarreraLXCATEGORIA: TStringField;
+    SELCategoriasID: TLongintField;
+    SELCategoriasNOMBRE: TStringField;
     SELDistancia: TZQuery;
     SELCarreraBVISIBLE: TSmallintField;
     SELCarreraFECHA: TDateField;
@@ -78,6 +84,7 @@ type
     qCategoriasNOMBRE: TStringField;
     UPDCarrera: TZQuery;
     DELCarrera: TZQuery;
+    UPDCategorias: TZQuery;
     UPDDistancia: TZQuery;
     UPDCategoriasCarrera: TZQuery;
     procedure CarreraAfterInsert(DataSet: TDataSet);
@@ -109,6 +116,11 @@ type
     procedure DeleteCategoria (refCategoria: GUID_ID);
 
     procedure CategoriasTUGLoad;
+
+    procedure CategoriaNew;
+    procedure CategoriaEdit (refCategoria: integer);
+    procedure CategoriaDel (refCategoria: integer);
+    procedure CategoriaSave;
 
   end;
 
@@ -314,6 +326,39 @@ begin
     Categorias.LoadFromDataSet(qCategorias, 0, lmAppend);
     Close;
   end;
+end;
+
+procedure TDM_Carreras.CategoriaNew;
+begin
+  DM_General.ReiniciarTabla(Categorias);
+  Categorias.Insert;
+
+end;
+
+procedure TDM_Carreras.CategoriaEdit(refCategoria: integer);
+begin
+  DM_General.ReiniciarTabla(Categorias);
+  with SELCategorias do
+  begin
+    if Active then Close;
+    ParamByName('id').AsInteger:= refCategoria;
+    Open;
+    Categorias.LoadFromDataSet(SELCategorias, 0, lmAppend);
+    Close;
+    if Categorias.RecordCount > 0 then
+       Categorias.Edit;
+  end;
+end;
+
+procedure TDM_Carreras.CategoriaDel(refCategoria: integer);
+begin
+  DELCategorias.ParamByName('id').asInteger:= refCategoria;
+  DELCategorias.ExecSQL;
+end;
+
+procedure TDM_Carreras.CategoriaSave;
+begin
+  DM_General.GrabarDatos(SELCategorias, INSCategorias, UPDCategorias, Categorias, 'id');
 end;
 
 end.

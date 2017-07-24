@@ -56,7 +56,7 @@
         <PackageName Value="LCL"/>
       </Item7>
     </RequiredPackages>
-    <Units Count="14">
+    <Units Count="15">
       <Unit0>
         <Filename Value="clasificador.pas"/>
         <IsPartOfProject Value="True"/>
@@ -142,8 +142,15 @@
         <Filename Value="frm_categoriascarreraae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCategoriasCarreraAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit13>
+      <Unit14>
+        <Filename Value="frm_categoriasae.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmCategoriasAE"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit14>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

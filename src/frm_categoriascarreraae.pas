@@ -21,6 +21,7 @@ type
     Panel2: TPanel;
     RxDBLookupCombo1: TRxDBLookupCombo;
     procedure btnAceptarClick(Sender: TObject);
+    procedure btnAgregarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -38,8 +39,10 @@ var
   frmCategoriasCarreraAE: TfrmCategoriasCarreraAE;
 
 implementation
-
 {$R *.lfm}
+uses
+  frm_categoriasae
+;
 
 { TfrmCategoriasCarreraAE }
 
@@ -73,7 +76,21 @@ end;
 
 procedure TfrmCategoriasCarreraAE.btnAceptarClick(Sender: TObject);
 begin
+  dmCarr.SaveCategorias;
   ModalResult:= mrOK;
+end;
+
+procedure TfrmCategoriasCarreraAE.btnAgregarClick(Sender: TObject);
+var
+  scr: TfrmCategoriasAE;
+begin
+  scr:= TfrmCategoriasAE.Create(self);
+  try
+    if scr.ShowModal = mrOK then
+       dmCarr.CategoriasTUGLoad;
+  finally
+    scr.Free;
+  end;
 end;
 
 end.
