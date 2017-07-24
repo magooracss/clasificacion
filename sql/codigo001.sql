@@ -7,6 +7,10 @@ CREATE DOMAIN "guid"
   CHARACTER SET ASCII
   DEFAULT '{00000000-0000-0000-0000-000000000000}' NOT NULL;
 
+CREATE DOMAIN "money"
+  AS decimal (18,4)
+  DEFAULT 0 NOT NULL;
+    
 
 CREATE Table HistoDB
 (
@@ -224,4 +228,18 @@ END^
 
 SET TERM ; ^  
 
-
+CREATE TABLE Corredores (
+	id	"guid"	not null primary key
+,	persona_id	"guid"
+,	carrera_id	"guid"
+,	distancia_id	"guid"
+,	numero		integer default 0
+, 	talle_id	integer default 0
+,	bInvitado	smallint default 0
+,	bPagado		smallint default 0
+,	importe		"money"
+,	recibo		varchar(20)
+,	fPago		date
+,	bListaEspera smallint default 0
+,	bVisible	smallint default 1
+);

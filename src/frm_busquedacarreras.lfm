@@ -207,7 +207,6 @@ object frmBusquedaCarreras: TfrmBusquedaCarreras
     TitleFont.Quality = fqDraft
   end
   object dsCarrera: TDataSource
-    AutoEdit = False
     DataSet = DM_Carreras.Carrera
     left = 143
     top = 146

@@ -56,7 +56,7 @@
         <PackageName Value="LCL"/>
       </Item7>
     </RequiredPackages>
-    <Units Count="15">
+    <Units Count="16">
       <Unit0>
         <Filename Value="clasificador.pas"/>
         <IsPartOfProject Value="True"/>
@@ -151,6 +151,12 @@
         <ComponentName Value="frmCategoriasAE"/>
         <ResourceBaseClass Value="Form"/>
       </Unit14>
+      <Unit15>
+        <Filename Value="dmcorredores.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_Corredores"/>
+        <ResourceBaseClass Value="DataModule"/>
+      </Unit15>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

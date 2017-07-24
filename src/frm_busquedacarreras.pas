@@ -25,10 +25,10 @@ type
     procedure FormShow(Sender: TObject);
   private
     dmCarr: TDM_Carreras;
+    _idCarreraSeleccionada: GUID_ID;
 
-    function getIdCarrera: GUID_ID;
   public
-    property carreraSeleccionadaID: GUID_ID read getIdCarrera;
+    property carreraSeleccionadaID: GUID_ID read _idCarreraSeleccionada;
   end;
 
 var
@@ -62,16 +62,15 @@ begin
   dmCarr.LoadCarreras;
 end;
 
-function TfrmBusquedaCarreras.getIdCarrera: GUID_ID;
-begin
-  if ((dmCarr.Carrera.Active) and (dmCarr.Carrera.RecordCount > 0 )) then
-    Result:= dmCarr.Carreraid.AsString
-  else
-    Result:= GUIDNULO;
-end;
-
 procedure TfrmBusquedaCarreras.btnAceptarClick(Sender: TObject);
 begin
+  if ((dmCarr.Carrera.Active)
+       and (dmCarr.Carrera.RecordCount > 0 )
+     ) then
+    _idCarreraSeleccionada:= dmCarr.Carreraid.AsString
+  else
+    _idCarreraSeleccionada:= GUIDNULO;
+
   ModalResult:= mrOK;
 end;
 

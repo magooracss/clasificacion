@@ -72,6 +72,24 @@ object frmMain: TfrmMain
       Top = 2
       Action = carr_SEL
     end
+    object ToolButton4: TToolButton
+      Left = 204
+      Top = 2
+      Action = corrNEW
+    end
+    object ToolButton5: TToolButton
+      Left = 296
+      Top = 2
+      Action = corrUPD
+    end
+    object ToolButton6: TToolButton
+      Left = 403
+      Height = 80
+      Top = 2
+      Width = 8
+      Caption = 'ToolButton6'
+      Style = tbsSeparator
+    end
   end
   object edCarrera: TEdit
     Left = 0
@@ -108,18 +126,6 @@ object frmMain: TfrmMain
         Action = prg_salir
       end
     end
-    object MenuItem2: TMenuItem
-      Caption = 'Personas'
-      object MenuItem5: TMenuItem
-        Action = perNEW
-      end
-      object MenuItem6: TMenuItem
-        Action = perUPD
-      end
-      object MenuItem7: TMenuItem
-        Action = perDEL
-      end
-    end
     object MenuItem9: TMenuItem
       Caption = 'Carreras'
       object MenuItem10: TMenuItem
@@ -136,6 +142,30 @@ object frmMain: TfrmMain
       end
       object MenuItem14: TMenuItem
         Action = carr_SEL
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Corredores'
+      object MenuItem5: TMenuItem
+        Action = corrNEW
+      end
+      object MenuItem6: TMenuItem
+        Action = corrUPD
+      end
+      object MenuItem7: TMenuItem
+        Action = corrDel
+      end
+    end
+    object MenuItem15: TMenuItem
+      Caption = 'Personas'
+      object MenuItem16: TMenuItem
+        Action = perNEW
+      end
+      object MenuItem17: TMenuItem
+        Action = perUPD
+      end
+      object MenuItem18: TMenuItem
+        Action = perDEL
       end
     end
   end
@@ -202,6 +232,21 @@ object frmMain: TfrmMain
       Caption = 'Seleccionar'
       ImageIndex = 35
       OnExecute = carr_SELExecute
+    end
+    object corrNEW: TAction
+      Category = 'Corredor'
+      Caption = 'Nuevo'
+      ImageIndex = 4
+    end
+    object corrUPD: TAction
+      Category = 'Corredor'
+      Caption = 'Ver/Modificar'
+      ImageIndex = 5
+    end
+    object corrDel: TAction
+      Category = 'Corredor'
+      Caption = 'Borrar'
+      ImageIndex = 6
     end
   end
 end

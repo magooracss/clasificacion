@@ -13,6 +13,9 @@ type
   { TfrmMain }
 
   TfrmMain = class(TForm)
+    corrUPD: TAction;
+    corrDel: TAction;
+    corrNEW: TAction;
     carr_SEL: TAction;
     carr_UPD: TAction;
     carr_DEL: TAction;
@@ -23,13 +26,18 @@ type
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
     MenuItem14: TMenuItem;
+    MenuItem15: TMenuItem;
+    MenuItem16: TMenuItem;
+    MenuItem17: TMenuItem;
+    MenuItem18: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem5: TMenuItem;
     MenuItem9: TMenuItem;
     perDEL: TAction;
     perUPD: TAction;
     perNEW: TAction;
     prg_configurar: TAction;
     prg_autor: TAction;
-    MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
@@ -37,7 +45,6 @@ type
     ActionList1: TActionList;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
-    MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     st: TStatusBar;
@@ -45,6 +52,9 @@ type
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
     ToolButton8: TToolButton;
     procedure carr_DELExecute(Sender: TObject);
     procedure carr_NEWExecute(Sender: TObject);
@@ -151,7 +161,6 @@ begin
   else
   begin
     SeleccionarCarrera(tmpID);
-
   end;
 
 end;
