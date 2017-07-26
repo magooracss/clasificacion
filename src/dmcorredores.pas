@@ -19,20 +19,25 @@ type
     CorredoresbPagado: TLongintField;
     CorredoresbVisible: TLongintField;
     Corredorescarrera_id: TStringField;
-    Corredorescategoria_id: TStringField;
-    Corredoresdistancia_id: TStringField;
+    Corredorescategoria_id: TLongintField;
+    Corredoresdistancia_id: TLongintField;
     CorredoresfPago: TDateTimeField;
+    CorredoreshLlegada: TDateTimeField;
     Corredoresid: TStringField;
     Corredoresimporte: TFloatField;
     Corredoresnumero: TLongintField;
     Corredorespersona_id: TStringField;
     Corredoresrecibo: TStringField;
     Corredorestalle_id: TLongintField;
+    SELCorredoresHLLEGADA: TTimeField;
+    tugTalles: TZQuery;
     SELCorredoresBINVITADO3: TSmallintField;
     SELCorredoresBLISTAESPERA3: TSmallintField;
     SELCorredoresBPAGADO3: TSmallintField;
     SELCorredoresBVISIBLE3: TSmallintField;
     SELCorredoresCARRERA_ID3: TStringField;
+    SELCorredoresCATEGORIA_ID: TLongintField;
+    SELCorredoresDISTANCIA_ID: TLongintField;
     SELCorredoresDISTANCIA_ID3: TStringField;
     SELCorredoresFPAGO3: TDateField;
     SELCorredoresID3: TStringField;
@@ -41,6 +46,9 @@ type
     SELCorredoresPERSONA_ID3: TStringField;
     SELCorredoresRECIBO3: TStringField;
     SELCorredoresTALLE_ID3: TLongintField;
+    tugTallesBVISIBLE: TSmallintField;
+    tugTallesID: TLongintField;
+    tugTallesTALLE: TStringField;
     UPDCorredores: TZQuery;
     SELCorredores: TZQuery;
     INSCorredores: TZQuery;
@@ -59,7 +67,6 @@ type
     SELCorredoresCARRERA_ID: TStringField;
     SELCorredoresCARRERA_ID1: TStringField;
     SELCorredoresCARRERA_ID2: TStringField;
-    SELCorredoresDISTANCIA_ID: TStringField;
     SELCorredoresDISTANCIA_ID1: TStringField;
     SELCorredoresDISTANCIA_ID2: TStringField;
     SELCorredoresFPAGO: TDateField;
@@ -85,6 +92,7 @@ type
     SELCorredoresTALLE_ID2: TLongintField;
     DELCorredores: TZQuery;
     procedure CorredoresAfterInsert(DataSet: TDataSet);
+    procedure DataModuleCreate(Sender: TObject);
   private
 
   public
@@ -93,6 +101,9 @@ type
     procedure Load (refCorredor: GUID_ID);
     procedure Delete (refCorredor: GUID_ID);
     procedure Save;
+
+    procedure AsignarPersona (persona_id: GUID_ID);
+    procedure AsignarCarrera (carrera_id: GUID_ID);
 
   end;
 
@@ -110,8 +121,8 @@ begin
   Corredoresid.AsString:= DM_General.CrearGUID;
   Corredorespersona_id.AsString:= GUIDNULO;
   Corredorescarrera_id.AsString:= GUIDNULO;
-  Corredoresdistancia_id.AsString:= GUIDNULO;
-  Corredorescategoria_id.AsString:= GUIDNULO;
+  Corredoresdistancia_id.AsInteger:= 0;
+  Corredorescategoria_id.AsInteger:= 0;
   Corredoresnumero.AsInteger:= 0;
   Corredorestalle_id.AsInteger:= 0;
   CorredoresbInvitado.AsInteger:= 0;
@@ -120,7 +131,12 @@ begin
   Corredoresrecibo.AsString:= EmptyStr;
   CorredoresfPago.AsDateTime:= 0;
   CorredoresbListaEspera.AsInteger:= 0;
-  CorredoresbVisible.AsInteger:= 0;
+  CorredoresbVisible.AsInteger:= 1;
+end;
+
+procedure TDM_Corredores.DataModuleCreate(Sender: TObject);
+begin
+  tugTalles.Open;
 end;
 
 procedure TDM_Corredores.New;
@@ -137,7 +153,7 @@ begin
     if active then close;
     ParamByName('id').AsString:= refCorredor;
     Open;
-    Corredores.LoadFromDataSet(Corredores, 0, lmAppend);
+    Corredores.LoadFromDataSet(SELCorredores, 0, lmAppend);
     Close;
   end;
 end;
@@ -152,6 +168,22 @@ procedure TDM_Corredores.Save;
 begin
   DM_General.GrabarDatos(SELCorredores, INSCorredores, UPDCorredores, Corredores, 'id');
 end;
+
+procedure TDM_Corredores.AsignarPersona(persona_id: GUID_ID);
+begin
+  Corredores.Edit;
+  Corredorespersona_id.AsString:= persona_id;
+  Corredores.Post;
+end;
+
+procedure TDM_Corredores.AsignarCarrera(carrera_id: GUID_ID);
+begin
+  Corredores.Edit;
+  Corredorescarrera_id.AsString:= carrera_id;
+  Corredores.Post;
+
+end;
+
 
 end.
 

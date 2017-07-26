@@ -192,19 +192,54 @@ CREATE TABLE Carreras (
 );
 
 CREATE TABLE Distancias(
-	id	"guid"	not null primary key
+	id	integer not null primary key
 ,	carrera_id	"guid"
 ,	nombre	varchar(500)
 ,	hLargada	time
 ,	bVisible smallint default 1
 );
 
+CREATE GENERATOR DistanciasID;
+
+SET GENERATOR DistanciasID TO 0;
+
+SET TERM ^ ;
+
+CREATE TRIGGER DistanciasID FOR Distancias
+BEFORE INSERT POSITION 0
+AS 
+BEGIN 
+    If (New.id = -1) then
+   New.id = GEN_ID(DistanciasID,1);
+END^
+
+SET TERM ; ^  
+
 CREATE TABLE CategoriasCarrera(
-	id	"guid"	not null primary key
+	id	integer not null primary key
 ,	carrera_id	"guid"
 , 	categoria_id integer default 0
 , 	bVisible smallint default 1
 );
+
+
+
+CREATE GENERATOR CategoriasCarreraID;
+
+SET GENERATOR CategoriasCarreraID TO 0;
+
+SET TERM ^ ;
+
+CREATE TRIGGER CategoriasCarreraID FOR CategoriasCarrera
+BEFORE INSERT POSITION 0
+AS 
+BEGIN 
+    If (New.id = -1) then
+   New.id = GEN_ID(CategoriasCarreraID,1);
+END^
+
+SET TERM ; ^  
+
 
 CREATE TABLE Categorias (
 	id	  integer not null primary key
@@ -232,7 +267,8 @@ CREATE TABLE Corredores (
 	id	"guid"	not null primary key
 ,	persona_id	"guid"
 ,	carrera_id	"guid"
-,	distancia_id	"guid"
+,	distancia_id	integer default 0
+,	categoria_id	integer default 0
 ,	numero		integer default 0
 , 	talle_id	integer default 0
 ,	bInvitado	smallint default 0
@@ -241,5 +277,63 @@ CREATE TABLE Corredores (
 ,	recibo		varchar(20)
 ,	fPago		date
 ,	bListaEspera smallint default 0
+,	hLlegada		time
 ,	bVisible	smallint default 1
 );
+
+CREATE TABLE Talles (
+	id	integer not null primary key
+,	talle	varchar(20)
+,	bVisible	smallint default 1
+);
+
+CREATE GENERATOR TallesID;
+
+SET GENERATOR TallesID TO 0;
+
+SET TERM ^ ;
+
+CREATE TRIGGER TallesID FOR Talles
+BEFORE INSERT POSITION 0
+AS 
+BEGIN 
+    If (New.id = -1) then
+   New.id = GEN_ID(TallesID,1);
+END^
+
+SET TERM ; ^  
+
+INSERT INTO TALLES
+(id, talle, bVisible)
+VALUES
+(0, 'Desconocido', 1);
+
+INSERT INTO TALLES
+(id, talle, bVisible)
+VALUES
+(-1, 'XS', 1);
+
+INSERT INTO TALLES
+(id, talle, bVisible)
+VALUES
+(-1, 'S', 1);
+
+INSERT INTO TALLES
+(id, talle, bVisible)
+VALUES
+(-1, 'M', 1);
+
+INSERT INTO TALLES
+(id, talle, bVisible)
+VALUES
+(-1, 'L', 1);
+
+INSERT INTO TALLES
+(id, talle, bVisible)
+VALUES
+(-1, 'XL', 1);
+
+INSERT INTO TALLES
+(id, talle, bVisible)
+VALUES
+(-1, 'XXL', 1);

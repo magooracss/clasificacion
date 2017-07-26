@@ -1,4 +1,5 @@
 object DM_Corredores: TDM_Corredores
+  OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 621
   HorizontalOffset = 556
@@ -23,13 +24,11 @@ object DM_Corredores: TDM_Corredores
       end    
       item
         Name = 'distancia_id'
-        DataType = ftString
-        Size = 38
+        DataType = ftInteger
       end    
       item
         Name = 'categoria_id'
-        DataType = ftString
-        Size = 38
+        DataType = ftInteger
       end    
       item
         Name = 'numero'
@@ -67,6 +66,10 @@ object DM_Corredores: TDM_Corredores
       item
         Name = 'bVisible'
         DataType = ftInteger
+      end    
+      item
+        Name = 'hLlegada'
+        DataType = ftDateTime
       end>
     AfterInsert = CorredoresAfterInsert
     PacketRecords = 0
@@ -102,30 +105,10 @@ object DM_Corredores: TDM_Corredores
       Required = False
       Size = 38
     end
-    object Corredoresdistancia_id: TStringField
-      FieldKind = fkData
-      FieldName = 'distancia_id'
-      Index = 3
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 38
-    end
-    object Corredorescategoria_id: TStringField
-      FieldKind = fkData
-      FieldName = 'categoria_id'
-      Index = 4
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 38
-    end
     object Corredoresnumero: TLongintField
       FieldKind = fkData
       FieldName = 'numero'
-      Index = 5
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -134,7 +117,7 @@ object DM_Corredores: TDM_Corredores
     object Corredorestalle_id: TLongintField
       FieldKind = fkData
       FieldName = 'talle_id'
-      Index = 6
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -143,7 +126,7 @@ object DM_Corredores: TDM_Corredores
     object CorredoresbInvitado: TLongintField
       FieldKind = fkData
       FieldName = 'bInvitado'
-      Index = 7
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -152,7 +135,7 @@ object DM_Corredores: TDM_Corredores
     object CorredoresbPagado: TLongintField
       FieldKind = fkData
       FieldName = 'bPagado'
-      Index = 8
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -161,11 +144,12 @@ object DM_Corredores: TDM_Corredores
     object Corredoresimporte: TFloatField
       FieldKind = fkData
       FieldName = 'importe'
-      Index = 9
+      Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Currency = True
       MaxValue = 0
       MinValue = 0
       Precision = 2
@@ -173,7 +157,7 @@ object DM_Corredores: TDM_Corredores
     object Corredoresrecibo: TStringField
       FieldKind = fkData
       FieldName = 'recibo'
-      Index = 10
+      Index = 8
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -182,7 +166,7 @@ object DM_Corredores: TDM_Corredores
     object CorredoresfPago: TDateTimeField
       FieldKind = fkData
       FieldName = 'fPago'
-      Index = 11
+      Index = 9
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -191,7 +175,7 @@ object DM_Corredores: TDM_Corredores
     object CorredoresbListaEspera: TLongintField
       FieldKind = fkData
       FieldName = 'bListaEspera'
-      Index = 12
+      Index = 10
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -200,7 +184,34 @@ object DM_Corredores: TDM_Corredores
     object CorredoresbVisible: TLongintField
       FieldKind = fkData
       FieldName = 'bVisible'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Corredoresdistancia_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'distancia_id'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Corredorescategoria_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'categoria_id'
       Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object CorredoreshLlegada: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'hLlegada'
+      Index = 14
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -258,20 +269,10 @@ object DM_Corredores: TDM_Corredores
       Required = False
       Size = 152
     end
-    object SELCorredoresDISTANCIA_ID: TStringField
-      FieldKind = fkData
-      FieldName = 'DISTANCIA_ID'
-      Index = 3
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 152
-    end
     object SELCorredoresNUMERO: TLongintField
       FieldKind = fkData
       FieldName = 'NUMERO'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -280,7 +281,7 @@ object DM_Corredores: TDM_Corredores
     object SELCorredoresTALLE_ID: TLongintField
       FieldKind = fkData
       FieldName = 'TALLE_ID'
-      Index = 5
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -289,7 +290,7 @@ object DM_Corredores: TDM_Corredores
     object SELCorredoresBINVITADO: TSmallintField
       FieldKind = fkData
       FieldName = 'BINVITADO'
-      Index = 6
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -298,7 +299,7 @@ object DM_Corredores: TDM_Corredores
     object SELCorredoresBPAGADO: TSmallintField
       FieldKind = fkData
       FieldName = 'BPAGADO'
-      Index = 7
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -307,7 +308,7 @@ object DM_Corredores: TDM_Corredores
     object SELCorredoresIMPORTE: TFloatField
       FieldKind = fkData
       FieldName = 'IMPORTE'
-      Index = 8
+      Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -319,7 +320,7 @@ object DM_Corredores: TDM_Corredores
     object SELCorredoresRECIBO: TStringField
       FieldKind = fkData
       FieldName = 'RECIBO'
-      Index = 9
+      Index = 8
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -329,7 +330,7 @@ object DM_Corredores: TDM_Corredores
     object SELCorredoresFPAGO: TDateField
       FieldKind = fkData
       FieldName = 'FPAGO'
-      Index = 10
+      Index = 9
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -338,7 +339,7 @@ object DM_Corredores: TDM_Corredores
     object SELCorredoresBLISTAESPERA: TSmallintField
       FieldKind = fkData
       FieldName = 'BLISTAESPERA'
-      Index = 11
+      Index = 10
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -347,10 +348,37 @@ object DM_Corredores: TDM_Corredores
     object SELCorredoresBVISIBLE: TSmallintField
       FieldKind = fkData
       FieldName = 'BVISIBLE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresDISTANCIA_ID: TLongintField
+      FieldKind = fkData
+      FieldName = 'DISTANCIA_ID'
       Index = 12
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresCATEGORIA_ID: TLongintField
+      FieldKind = fkData
+      FieldName = 'CATEGORIA_ID'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresHLLEGADA: TTimeField
+      FieldKind = fkData
+      FieldName = 'HLLEGADA'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
       Required = False
     end
   end
@@ -358,9 +386,9 @@ object DM_Corredores: TDM_Corredores
     Connection = DM_General.cnxBase
     SQL.Strings = (
       'INSERT INTO Corredores'
-      '(id, persona_id, carrera_id, distancia_id, numero, talle_id, bInvitado, bPagado, importe, recibo, fPago, bListaEspera, bVisible)'
+      '(id, persona_id, carrera_id, distancia_id, categoria_id, numero, talle_id, bInvitado, bPagado, importe, recibo, fPago, bListaEspera, hLlegada, bVisible)'
       'VALUES'
-      '(:id, :persona_id, :carrera_id, :distancia_id, :numero, :talle_id, :bInvitado, :bPagado, :importe, :recibo, :fPago, :bListaEspera, :bVisible)'
+      '(:id, :persona_id, :carrera_id, :distancia_id, :categoria_id,  :numero, :talle_id, :bInvitado, :bPagado, :importe, :recibo, :fPago, :bListaEspera,  :hLlegada, :bVisible)'
     )
     Params = <    
       item
@@ -381,6 +409,11 @@ object DM_Corredores: TDM_Corredores
       item
         DataType = ftUnknown
         Name = 'distancia_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'categoria_id'
         ParamType = ptUnknown
       end    
       item
@@ -421,6 +454,11 @@ object DM_Corredores: TDM_Corredores
       item
         DataType = ftUnknown
         Name = 'bListaEspera'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'hLlegada'
         ParamType = ptUnknown
       end    
       item
@@ -453,6 +491,11 @@ object DM_Corredores: TDM_Corredores
       end    
       item
         DataType = ftUnknown
+        Name = 'categoria_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
         Name = 'numero'
         ParamType = ptUnknown
       end    
@@ -489,6 +532,11 @@ object DM_Corredores: TDM_Corredores
       item
         DataType = ftUnknown
         Name = 'bListaEspera'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'hLlegada'
         ParamType = ptUnknown
       end    
       item
@@ -630,6 +678,7 @@ object DM_Corredores: TDM_Corredores
       '  persona_id = :persona_id'
       ', carrera_id = :carrera_id'
       ', distancia_id = :distancia_id'
+      ', categoria_id = :categoria_id'
       ', numero = :numero'
       ', talle_id = :talle_id'
       ', bInvitado = :bInvitado'
@@ -638,6 +687,7 @@ object DM_Corredores: TDM_Corredores
       ', recibo = :recibo'
       ', fPago = :fPago'
       ', bListaEspera = :bListaEspera'
+      ', hLlegada = :hLlegada'
       ', bVisible = :bVisible'
       'WHERE (id = :id)'
     )
@@ -655,6 +705,11 @@ object DM_Corredores: TDM_Corredores
       item
         DataType = ftUnknown
         Name = 'distancia_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'categoria_id'
         ParamType = ptUnknown
       end    
       item
@@ -695,6 +750,11 @@ object DM_Corredores: TDM_Corredores
       item
         DataType = ftUnknown
         Name = 'bListaEspera'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'hLlegada'
         ParamType = ptUnknown
       end    
       item
@@ -727,6 +787,11 @@ object DM_Corredores: TDM_Corredores
       end    
       item
         DataType = ftUnknown
+        Name = 'categoria_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
         Name = 'numero'
         ParamType = ptUnknown
       end    
@@ -763,6 +828,11 @@ object DM_Corredores: TDM_Corredores
       item
         DataType = ftUnknown
         Name = 'bListaEspera'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'hLlegada'
         ParamType = ptUnknown
       end    
       item
@@ -905,7 +975,7 @@ object DM_Corredores: TDM_Corredores
     Connection = DM_General.cnxBase
     SQL.Strings = (
       'UPDATE Corredores'
-      'SET   bVisible = 1'
+      'SET   bVisible = 0'
       'WHERE (id = :id)'
     )
     Params = <    
@@ -1042,6 +1112,45 @@ object DM_Corredores: TDM_Corredores
       FieldKind = fkData
       FieldName = 'BVISIBLE'
       Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object tugTalles: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT *'
+      'FROM Talles'
+      'WHERE (bVisible = 1)'
+    )
+    Params = <>
+    left = 472
+    top = 128
+    object tugTallesID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object tugTallesTALLE: TStringField
+      FieldKind = fkData
+      FieldName = 'TALLE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object tugTallesBVISIBLE: TSmallintField
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False

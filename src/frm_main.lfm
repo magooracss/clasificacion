@@ -1,11 +1,11 @@
 object frmMain: TfrmMain
   Left = 330
-  Height = 445
-  Top = 276
-  Width = 828
+  Height = 443
+  Top = 278
+  Width = 966
   Caption = 'Clasificador'
-  ClientHeight = 420
-  ClientWidth = 828
+  ClientHeight = 418
+  ClientWidth = 966
   Font.CharSet = ANSI_CHARSET
   Font.Height = -17
   Font.Name = 'Arial'
@@ -19,9 +19,9 @@ object frmMain: TfrmMain
   LCLVersion = '1.6.4.0'
   object st: TStatusBar
     Left = 0
-    Height = 28
-    Top = 392
-    Width = 828
+    Height = 24
+    Top = 394
+    Width = 966
     Panels = <    
       item
         Width = 200
@@ -36,7 +36,7 @@ object frmMain: TfrmMain
     Left = 0
     Height = 82
     Top = 0
-    Width = 828
+    Width = 966
     AutoSize = True
     ButtonHeight = 80
     ButtonWidth = 92
@@ -90,12 +90,17 @@ object frmMain: TfrmMain
       Caption = 'ToolButton6'
       Style = tbsSeparator
     end
+    object ToolButton7: TToolButton
+      Left = 411
+      Top = 2
+      Action = carr_llegada
+    end
   end
   object edCarrera: TEdit
     Left = 0
     Height = 32
     Top = 82
-    Width = 828
+    Width = 966
     Align = alTop
     Color = clSkyBlue
     Font.CharSet = ANSI_CHARSET
@@ -109,6 +114,154 @@ object frmMain: TfrmMain
     TabStop = False
     TabOrder = 2
     Text = '--'
+  end
+  object RxDBGrid1: TRxDBGrid
+    Left = 0
+    Height = 280
+    Top = 114
+    Width = 966
+    TitleButtons = False
+    AutoSort = True
+    Columns = <    
+      item
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Apellido y Nombres'
+        Width = 410
+        FieldName = 'APYNOM'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Todos)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Documento'
+        Width = 120
+        FieldName = 'DOCUMENTO'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Todos)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Número'
+        Width = 90
+        FieldName = 'NUMERO'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Todos)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Distancia'
+        Width = 171
+        FieldName = 'DISTANCIA'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Todos)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Categoría'
+        Width = 171
+        FieldName = 'CATEGORIA'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Todos)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+      end>
+    KeyStrokes = <    
+      item
+        Command = rxgcShowFindDlg
+        ShortCut = 16454
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowColumnsDlg
+        ShortCut = 16471
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowFilterDlg
+        ShortCut = 16468
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowSortDlg
+        ShortCut = 16467
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowQuickFilter
+        ShortCut = 16465
+        Enabled = True
+      end    
+      item
+        Command = rxgcHideQuickFilter
+        ShortCut = 16456
+        Enabled = True
+      end    
+      item
+        Command = rxgcSelectAll
+        ShortCut = 16449
+        Enabled = True
+      end    
+      item
+        Command = rxgcDeSelectAll
+        ShortCut = 16429
+        Enabled = True
+      end    
+      item
+        Command = rxgcInvertSelection
+        ShortCut = 16426
+        Enabled = True
+      end    
+      item
+        Command = rxgcOptimizeColumnsWidth
+        ShortCut = 16427
+        Enabled = True
+      end    
+      item
+        Command = rxgcCopyCellValue
+        ShortCut = 16451
+        Enabled = True
+      end>
+    OptionsRx = [rdgAllowColumnsForm, rdgAllowDialogFind, rdgAllowQuickFilter]
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    DrawFullLine = False
+    FocusColor = clRed
+    SelectedColor = clHighlight
+    GridLineStyle = psSolid
+    DataSource = DS_Grilla
+    FixedCols = 0
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ParentColor = False
+    Scrollbars = ssAutoVertical
+    TabOrder = 3
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Height = -17
+    TitleFont.Name = 'Arial'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
   end
   object MainMenu1: TMainMenu
     Images = DM_General.ImgAccionesMenu
@@ -166,6 +319,12 @@ object frmMain: TfrmMain
       end
       object MenuItem18: TMenuItem
         Action = perDEL
+      end
+    end
+    object MenuItem19: TMenuItem
+      Caption = 'Tiempos'
+      object MenuItem20: TMenuItem
+        Action = carr_llegada
       end
     end
   end
@@ -237,16 +396,29 @@ object frmMain: TfrmMain
       Category = 'Corredor'
       Caption = 'Nuevo'
       ImageIndex = 4
+      OnExecute = corrNEWExecute
     end
     object corrUPD: TAction
       Category = 'Corredor'
       Caption = 'Ver/Modificar'
       ImageIndex = 5
+      OnExecute = corrUPDExecute
     end
     object corrDel: TAction
       Category = 'Corredor'
       Caption = 'Borrar'
       ImageIndex = 6
+      OnExecute = corrDelExecute
     end
+    object carr_llegada: TAction
+      Category = 'Carreras'
+      Caption = 'Llegada'
+      ImageIndex = 20
+    end
+  end
+  object DS_Grilla: TDataSource
+    DataSet = DM_Main.qCorredores
+    left = 432
+    top = 160
   end
 end

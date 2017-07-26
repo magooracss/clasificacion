@@ -311,8 +311,7 @@ object DM_Carreras: TDM_Carreras
     FieldDefs = <    
       item
         Name = 'id'
-        DataType = ftString
-        Size = 38
+        DataType = ftInteger
       end    
       item
         Name = 'carrera_id'
@@ -336,7 +335,7 @@ object DM_Carreras: TDM_Carreras
     PacketRecords = 0
     left = 224
     top = 40
-    object Distanciasid: TStringField
+    object Distanciasid: TLongintField
       FieldKind = fkData
       FieldName = 'id'
       Index = 0
@@ -344,7 +343,6 @@ object DM_Carreras: TDM_Carreras
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 38
     end
     object Distanciascarrera_id: TStringField
       FieldKind = fkData
@@ -407,20 +405,10 @@ object DM_Carreras: TDM_Carreras
         Name = 'id'
         ParamType = ptUnknown
       end>
-    object SELDistanciaID: TStringField
-      FieldKind = fkData
-      FieldName = 'ID'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 152
-    end
     object SELDistanciaCARRERA_ID: TStringField
       FieldKind = fkData
       FieldName = 'CARRERA_ID'
-      Index = 1
+      Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -430,7 +418,7 @@ object DM_Carreras: TDM_Carreras
     object SELDistanciaNOMBRE: TStringField
       FieldKind = fkData
       FieldName = 'NOMBRE'
-      Index = 2
+      Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -440,7 +428,7 @@ object DM_Carreras: TDM_Carreras
     object SELDistanciaHLARGADA: TTimeField
       FieldKind = fkData
       FieldName = 'HLARGADA'
-      Index = 3
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -449,11 +437,20 @@ object DM_Carreras: TDM_Carreras
     object SELDistanciaBVISIBLE: TSmallintField
       FieldKind = fkData
       FieldName = 'BVISIBLE'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+    end
+    object SELDistanciaID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
     end
   end
   object INSDistancia: TZQuery
@@ -629,20 +626,10 @@ object DM_Carreras: TDM_Carreras
         Name = 'carrera_id'
         ParamType = ptUnknown
       end>
-    object qDistanciasCarreraID: TStringField
-      FieldKind = fkData
-      FieldName = 'ID'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 152
-    end
     object qDistanciasCarreraCARRERA_ID: TStringField
       FieldKind = fkData
       FieldName = 'CARRERA_ID'
-      Index = 1
+      Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -652,7 +639,7 @@ object DM_Carreras: TDM_Carreras
     object qDistanciasCarreraNOMBRE: TStringField
       FieldKind = fkData
       FieldName = 'NOMBRE'
-      Index = 2
+      Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -662,7 +649,7 @@ object DM_Carreras: TDM_Carreras
     object qDistanciasCarreraHLARGADA: TTimeField
       FieldKind = fkData
       FieldName = 'HLARGADA'
-      Index = 3
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -671,19 +658,27 @@ object DM_Carreras: TDM_Carreras
     object qDistanciasCarreraBVISIBLE: TSmallintField
       FieldKind = fkData
       FieldName = 'BVISIBLE'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+    end
+    object qDistanciasCarreraID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
     end
   end
   object CategoriasCarrera: TRxMemoryData
     FieldDefs = <    
       item
         Name = 'id'
-        DataType = ftString
-        Size = 38
+        DataType = ftInteger
       end    
       item
         Name = 'carrera_id'
@@ -707,20 +702,10 @@ object DM_Carreras: TDM_Carreras
     PacketRecords = 0
     left = 376
     top = 40
-    object CategoriasCarreraid: TStringField
-      FieldKind = fkData
-      FieldName = 'id'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 38
-    end
     object CategoriasCarreracarrera_id: TStringField
       FieldKind = fkData
       FieldName = 'carrera_id'
-      Index = 1
+      Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -730,7 +715,7 @@ object DM_Carreras: TDM_Carreras
     object CategoriasCarreracategoria_id: TLongintField
       FieldKind = fkData
       FieldName = 'categoria_id'
-      Index = 2
+      Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -739,7 +724,7 @@ object DM_Carreras: TDM_Carreras
     object CategoriasCarrerabVisible: TLongintField
       FieldKind = fkData
       FieldName = 'bVisible'
-      Index = 3
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -748,12 +733,21 @@ object DM_Carreras: TDM_Carreras
     object CategoriasCarreralxCategoria: TStringField
       FieldKind = fkData
       FieldName = 'lxCategoria'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 500
+    end
+    object CategoriasCarreraid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
     end
   end
   object SELCategoriasCarrera: TZQuery
@@ -779,20 +773,10 @@ object DM_Carreras: TDM_Carreras
         Name = 'id'
         ParamType = ptUnknown
       end>
-    object SELCategoriasCarreraID: TStringField
-      FieldKind = fkData
-      FieldName = 'ID'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 152
-    end
     object SELCategoriasCarreraCARRERA_ID: TStringField
       FieldKind = fkData
       FieldName = 'CARRERA_ID'
-      Index = 1
+      Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -802,7 +786,7 @@ object DM_Carreras: TDM_Carreras
     object SELCategoriasCarreraCATEGORIA_ID: TLongintField
       FieldKind = fkData
       FieldName = 'CATEGORIA_ID'
-      Index = 2
+      Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -811,7 +795,7 @@ object DM_Carreras: TDM_Carreras
     object SELCategoriasCarreraBVISIBLE: TSmallintField
       FieldKind = fkData
       FieldName = 'BVISIBLE'
-      Index = 3
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -820,12 +804,21 @@ object DM_Carreras: TDM_Carreras
     object SELCategoriasCarreraLXCATEGORIA: TStringField
       FieldKind = fkData
       FieldName = 'LXCATEGORIA'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 2000
+    end
+    object SELCategoriasCarreraID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
     end
   end
   object INSCategoriasCarrera: TZQuery
@@ -982,20 +975,10 @@ object DM_Carreras: TDM_Carreras
         Name = 'carrera_id'
         ParamType = ptUnknown
       end>
-    object qCategoriasCarreraID: TStringField
-      FieldKind = fkData
-      FieldName = 'ID'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 152
-    end
     object qCategoriasCarreraCARRERA_ID: TStringField
       FieldKind = fkData
       FieldName = 'CARRERA_ID'
-      Index = 1
+      Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -1005,7 +988,7 @@ object DM_Carreras: TDM_Carreras
     object qCategoriasCarreraCATEGORIA_ID: TLongintField
       FieldKind = fkData
       FieldName = 'CATEGORIA_ID'
-      Index = 2
+      Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -1014,7 +997,7 @@ object DM_Carreras: TDM_Carreras
     object qCategoriasCarreraBVISIBLE: TSmallintField
       FieldKind = fkData
       FieldName = 'BVISIBLE'
-      Index = 3
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -1023,12 +1006,21 @@ object DM_Carreras: TDM_Carreras
     object qCategoriasCarreraLXCATEGORIA: TStringField
       FieldKind = fkData
       FieldName = 'LXCATEGORIA'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 2000
+    end
+    object qCategoriasCarreraID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
     end
   end
   object qCategorias: TZQuery

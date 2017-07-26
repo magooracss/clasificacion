@@ -22,7 +22,7 @@ type
     CategoriasCarrerabVisible: TLongintField;
     CategoriasCarreracarrera_id: TStringField;
     CategoriasCarreracategoria_id: TLongintField;
-    CategoriasCarreraid: TStringField;
+    CategoriasCarreraid: TLongintField;
     CategoriasCarreralxCategoria: TStringField;
     Categoriasid: TLongintField;
     Categoriasnombre: TStringField;
@@ -32,12 +32,13 @@ type
     DistanciasbVisible: TLongintField;
     Distanciascarrera_id: TStringField;
     DistanciashLargada: TDateTimeField;
-    Distanciasid: TStringField;
+    Distanciasid: TLongintField;
     DistanciasNombre: TStringField;
     INSCategorias: TZQuery;
     INSDistancia: TZQuery;
     INSCategoriasCarrera: TZQuery;
     qCategorias: TZQuery;
+    qCategoriasCarreraID: TLongintField;
     qDistanciasCarrera: TZQuery;
     qCarrerasBVISIBLE: TSmallintField;
     qCarrerasFECHA: TDateField;
@@ -48,12 +49,11 @@ type
     qCategoriasCarreraBVISIBLE: TSmallintField;
     qCategoriasCarreraCARRERA_ID: TStringField;
     qCategoriasCarreraCATEGORIA_ID: TLongintField;
-    qCategoriasCarreraID: TStringField;
     qCategoriasCarreraLXCATEGORIA: TStringField;
     qDistanciasCarreraBVISIBLE: TSmallintField;
     qDistanciasCarreraCARRERA_ID: TStringField;
     qDistanciasCarreraHLARGADA: TTimeField;
-    qDistanciasCarreraID: TStringField;
+    qDistanciasCarreraID: TLongintField;
     qDistanciasCarreraNOMBRE: TStringField;
     CategoriasCarrera: TRxMemoryData;
     SELCarrera: TZQuery;
@@ -63,7 +63,7 @@ type
     SELCategoriasCarreraBVISIBLE: TSmallintField;
     SELCategoriasCarreraCARRERA_ID: TStringField;
     SELCategoriasCarreraCATEGORIA_ID: TLongintField;
-    SELCategoriasCarreraID: TStringField;
+    SELCategoriasCarreraID: TLongintField;
     SELCategoriasCarreraLXCATEGORIA: TStringField;
     SELCategoriasID: TLongintField;
     SELCategoriasNOMBRE: TStringField;
@@ -77,7 +77,7 @@ type
     SELDistanciaBVISIBLE: TSmallintField;
     SELDistanciaCARRERA_ID: TStringField;
     SELDistanciaHLARGADA: TTimeField;
-    SELDistanciaID: TStringField;
+    SELDistanciaID: TLongintField;
     SELDistanciaNOMBRE: TStringField;
     qCategoriasBVISIBLE: TSmallintField;
     qCategoriasID: TLongintField;
@@ -151,7 +151,7 @@ end;
 
 procedure TDM_Carreras.CategoriasCarreraAfterInsert(DataSet: TDataSet);
 begin
-  CategoriasCarreraid.AsString:= DM_General.CrearGUID;
+  CategoriasCarreraid.AsInteger:= -1;
   CategoriasCarreracarrera_id.AsString:= _carreraID;
   CategoriasCarreracategoria_id.AsInteger:= 0;
   CategoriasCarrerabVisible.AsInteger:= 1;
@@ -164,7 +164,7 @@ end;
 
 procedure TDM_Carreras.DistanciasAfterInsert(DataSet: TDataSet);
 begin
-  Distanciasid.AsString:= DM_General.CrearGUID;
+  Distanciasid.AsInteger:= -1;
   Distanciascarrera_id.AsString:= _carreraID;
   DistanciashLargada.AsDateTime:= Now;
   DistanciasNombre.AsString:= EmptyStr;

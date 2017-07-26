@@ -18,7 +18,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="8"/>
+      <BuildNr Value="10"/>
       <Language Value="040A"/>
       <StringTable CompanyName="RACSS Programación de Carlos Enrique Rodriguez" LegalCopyright="Carlos Enrique Rodriguez" LegalTrademarks="RACSS Programación de Carlos Enrique Rodriguez" ProductVersion=""/>
     </VersionInfo>
@@ -56,7 +56,7 @@
         <PackageName Value="LCL"/>
       </Item7>
     </RequiredPackages>
-    <Units Count="16">
+    <Units Count="18">
       <Unit0>
         <Filename Value="clasificador.pas"/>
         <IsPartOfProject Value="True"/>
@@ -155,8 +155,23 @@
         <Filename Value="dmcorredores.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Corredores"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
       </Unit15>
+      <Unit16>
+        <Filename Value="frm_corredoresae.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmCorredoresAE"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="dmmain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_Main"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="dmMain"/>
+      </Unit17>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

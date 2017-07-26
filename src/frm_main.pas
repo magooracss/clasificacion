@@ -5,14 +5,15 @@ unit frm_main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus,
-  ActnList, ComCtrls, StdCtrls, dmgeneral, dmcarreras;
+  Classes, SysUtils, db, FileUtil, rxmemds, rxdbgrid, Forms, Controls, Graphics,
+  Dialogs, Menus, ActnList, ComCtrls, StdCtrls, dmgeneral, dmcarreras;
 
 type
 
   { TfrmMain }
 
   TfrmMain = class(TForm)
+    carr_llegada: TAction;
     corrUPD: TAction;
     corrDel: TAction;
     corrNEW: TAction;
@@ -20,6 +21,7 @@ type
     carr_UPD: TAction;
     carr_DEL: TAction;
     carr_NEW: TAction;
+    DS_Grilla: TDataSource;
     edCarrera: TEdit;
     MenuItem10: TMenuItem;
     MenuItem11: TMenuItem;
@@ -30,7 +32,9 @@ type
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
     MenuItem18: TMenuItem;
+    MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
+    MenuItem20: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem9: TMenuItem;
     perDEL: TAction;
@@ -47,6 +51,7 @@ type
     MenuItem1: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
+    RxDBGrid1: TRxDBGrid;
     st: TStatusBar;
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
@@ -55,11 +60,15 @@ type
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
     ToolButton8: TToolButton;
     procedure carr_DELExecute(Sender: TObject);
     procedure carr_NEWExecute(Sender: TObject);
     procedure carr_SELExecute(Sender: TObject);
     procedure carr_UPDExecute(Sender: TObject);
+    procedure corrDelExecute(Sender: TObject);
+    procedure corrNEWExecute(Sender: TObject);
+    procedure corrUPDExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -75,6 +84,7 @@ type
     procedure scrPersonas (refPersona: GUID_ID);
     procedure SeleccionarCarrera (refCarrera: GUID_ID);
     procedure scrCarrera (refCarrera: GUID_ID);
+    procedure scrCorredor (refCorredor: GUID_ID);
   public
     { public declarations }
   end;
@@ -93,6 +103,9 @@ uses
 , SD_Configuracion
 , frm_busquedacarreras
 , frm_carrerasae
+, frm_corredoresae
+, dmcorredores
+, dmMain
 ;
 
 
@@ -163,6 +176,7 @@ begin
     SeleccionarCarrera(tmpID);
   end;
 
+  DM_Main.LevantarCarrera(_carreraActiva);
 end;
 
 
@@ -231,6 +245,7 @@ begin
   dmCarrera.LoadCarrera(_carreraActiva);
   edCarrera.Text:= dmCarrera.CarreraNombre.AsString;
   EscribirDato(SECCION_APP, CARRERA_ACTIVA,_carreraActiva);
+  DM_Main.LevantarCarrera(_carreraActiva);
 end;
 
 procedure TfrmMain.scrCarrera(refCarrera: GUID_ID);
@@ -301,5 +316,56 @@ begin
     scrBus.Free;
   end;
 end;
+
+(*******************************************************************************
+***  CORREDORES
+*******************************************************************************)
+
+procedure TfrmMain.scrCorredor(refCorredor: GUID_ID);
+var
+  scrCorr: TfrmCorredoresAE;
+begin
+  scrCorr:= TfrmCorredoresAE.Create(self);
+  try
+    scrCorr.corredorID:= refCorredor;
+    scrCorr.carreraID:= _carreraActiva;
+    if scrCorr.ShowModal = mrOK then
+    begin
+      DM_Main.LevantarCarrera(_carreraActiva);
+    end;
+  finally
+  end;
+end;
+
+procedure TfrmMain.corrNEWExecute(Sender: TObject);
+begin
+  scrCorredor (GUIDNULO);
+end;
+
+procedure TfrmMain.corrUPDExecute(Sender: TObject);
+begin
+  scrCorredor (DS_Grilla.DataSet.FieldByName('idCorredor').AsString);
+end;
+
+
+procedure TfrmMain.corrDelExecute(Sender: TObject);
+var
+  dmC: TDM_Corredores;
+begin
+  dmC:= TDM_Corredores.Create(self);
+  try
+    if (MessageDlg ('ATENCION'
+                       , 'Borro el corredor seleccionado?'
+                       , mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+    begin
+      dmC.Delete(DS_Grilla.DataSet.FieldByName('idCorredor').AsString);
+      DM_Main.LevantarCarrera(_carreraActiva);
+    end;
+  finally
+    dmC.Free;
+  end;
+end;
+
+
 end.
 
