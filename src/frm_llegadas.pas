@@ -16,6 +16,7 @@ type
   TfrmLlegadas = class(TForm)
     btnNuevo: TBitBtn;
     btnSalir: TBitBtn;
+    ckReloj: TCheckBox;
     dsPersona: TDataSource;
     DBText1: TDBText;
     DBText2: TDBText;
@@ -29,7 +30,7 @@ type
     aTimer: TTimer;
     procedure btnNuevoClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
-    procedure edLlegadaEnter(Sender: TObject);
+    procedure ckRelojChange(Sender: TObject);
     procedure edNroKeyPress(Sender: TObject; var Key: char);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -75,10 +76,11 @@ begin
   ModalResult:= mrOK;
 end;
 
-procedure TfrmLlegadas.edLlegadaEnter(Sender: TObject);
+procedure TfrmLlegadas.ckRelojChange(Sender: TObject);
 begin
-  aTimer.Enabled:= false;
+  aTimer.Enabled:= not ckReloj.Checked;
 end;
+
 
 procedure TfrmLlegadas.FormCreate(Sender: TObject);
 begin
@@ -97,6 +99,7 @@ end;
 
 procedure TfrmLlegadas.FormShow(Sender: TObject);
 begin
+  edLlegada.Time:= Time;
   edLlegada.SetFocus;
 end;
 

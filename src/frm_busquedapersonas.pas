@@ -81,13 +81,13 @@ end;
 
 function TfrmBusquedaPersonas.getSeleccion: GUID_ID;
 begin
-  if ((dmBus.Resultados.Active) and (dmBus.Resultados.RecordCount > 0)) then
-    Result:= dmBus.Resultadosid.AsString
+  if (_idGenerador <> GUIDNULO) then
+    Result:= _idGenerador
   else
-    if (_idGenerador <> GUIDNULO) then
-      Result:= _idGenerador
-    else
-      Result:= GUIDNULO;
+    if ((dmBus.Resultados.Active) and (dmBus.Resultados.RecordCount > 0)) then
+      Result:= dmBus.Resultadosid.AsString
+     else
+       Result:= GUIDNULO;
 end;
 
 procedure TfrmBusquedaPersonas.Buscar;
@@ -110,6 +110,7 @@ var
 begin
   scr:= TfrmPersonaAE.Create(self);
   try
+    Scr.personaID:= GUIDNULO;
     if scr.ShowModal = mrOK then
     begin
       _idGenerador:= scr.personaID;

@@ -110,6 +110,10 @@ end;
 
 procedure TfrmListados.lbReportsSelectionChange(Sender: TObject; User: boolean);
 begin
+ if ((lbReports.ItemIndex < lbReports.Items.Count)
+     and
+      (lbReports.ItemIndex >= 0)
+     )then
   PCParametros.ActivePageIndex:= (reportOptions[lbReports.ItemIndex] as TReportOption).parameterIdx;
 end;
 

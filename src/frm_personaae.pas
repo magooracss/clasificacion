@@ -67,6 +67,8 @@ implementation
 
 procedure TfrmPersonaAE.FormCreate(Sender: TObject);
 begin
+  _personaID:= GUIDNULO;
+
   dmPer:= TDM_Personas.Create(self);
 
   ds_personas.DataSet:= dmPer.Personas;

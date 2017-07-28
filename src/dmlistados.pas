@@ -65,6 +65,8 @@ begin
 end;
 
 procedure TDM_Listados.CalcularTiempos;
+var
+  elTiempo: TTime;
 begin
   with ResultadosCarrera do
   begin
@@ -74,9 +76,18 @@ begin
       First;
       while (Not EOF) do
       begin
-        Edit;
-        ResultadosCarreraTiempoTotal.AsDateTime:= ConvertirSegundos(ResultadosCarreraTiempoSegundos.AsInteger);
-        Post;
+        elTiempo:= ConvertirSegundos(ResultadosCarreraTiempoSegundos.AsInteger);
+        if elTiempo = 0 then
+        begin
+          ResultadosCarrera.Delete;
+          First;
+        end
+        else
+        begin
+          Edit;
+          ResultadosCarreraTiempoTotal.AsDateTime:= elTiempo;
+          Post;
+        end;
         Next;
       end;
     end;

@@ -12316,9 +12316,7 @@ object DM_General: TDM_General
       'codepage=UTF8'
     )
     TransactIsolationLevel = tiReadCommitted
-    Connected = True
     Port = 0
-    Database = 'c:\magoo\job\clasificacion\db\CLASIFICADOR.FDB'
     User = 'SYSDBA'
     Password = 'masterkey'
     Protocol = 'firebirdd-2.5'

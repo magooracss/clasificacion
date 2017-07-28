@@ -128,7 +128,15 @@ object frmLlegadas: TfrmLlegadas
         UseDefaultSeparators = True
         HideDateTimeParts = []
         MonthNames = 'Long'
-        OnEnter = edLlegadaEnter
+      end
+      object ckReloj: TCheckBox
+        Left = 360
+        Height = 23
+        Top = 112
+        Width = 117
+        Caption = 'Detener reloj'
+        OnChange = ckRelojChange
+        TabOrder = 2
       end
     end
   end
