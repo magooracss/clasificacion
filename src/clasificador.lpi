@@ -18,7 +18,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="12"/>
+      <BuildNr Value="14"/>
       <Language Value="040A"/>
       <StringTable CompanyName="RACSS Programación de Carlos Enrique Rodriguez" LegalCopyright="Carlos Enrique Rodriguez" LegalTrademarks="RACSS Programación de Carlos Enrique Rodriguez" ProductVersion=""/>
     </VersionInfo>
