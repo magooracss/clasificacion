@@ -56,7 +56,7 @@
         <PackageName Value="LCL"/>
       </Item7>
     </RequiredPackages>
-    <Units Count="18">
+    <Units Count="19">
       <Unit0>
         <Filename Value="clasificador.pas"/>
         <IsPartOfProject Value="True"/>
@@ -169,9 +169,17 @@
         <Filename Value="dmmain.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Main"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmMain"/>
       </Unit17>
+      <Unit18>
+        <Filename Value="frm_llegadas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLlegadas"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit18>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

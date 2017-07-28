@@ -29,7 +29,23 @@ type
     Corredorespersona_id: TStringField;
     Corredoresrecibo: TStringField;
     Corredorestalle_id: TLongintField;
+    qCorrPorNro: TZQuery;
+    SELCorredoresBINVITADO4: TSmallintField;
+    SELCorredoresBLISTAESPERA4: TSmallintField;
+    SELCorredoresBPAGADO4: TSmallintField;
+    SELCorredoresBVISIBLE4: TSmallintField;
+    SELCorredoresCARRERA_ID4: TStringField;
+    SELCorredoresCATEGORIA_ID1: TLongintField;
+    SELCorredoresDISTANCIA_ID4: TLongintField;
+    SELCorredoresFPAGO4: TDateField;
     SELCorredoresHLLEGADA: TTimeField;
+    SELCorredoresHLLEGADA1: TTimeField;
+    SELCorredoresID4: TStringField;
+    SELCorredoresIMPORTE4: TFloatField;
+    SELCorredoresNUMERO4: TLongintField;
+    SELCorredoresPERSONA_ID4: TStringField;
+    SELCorredoresRECIBO4: TStringField;
+    SELCorredoresTALLE_ID4: TLongintField;
     tugTalles: TZQuery;
     SELCorredoresBINVITADO3: TSmallintField;
     SELCorredoresBLISTAESPERA3: TSmallintField;
@@ -104,6 +120,9 @@ type
 
     procedure AsignarPersona (persona_id: GUID_ID);
     procedure AsignarCarrera (carrera_id: GUID_ID);
+    procedure AsignarLlegada (horaLlegada: TTime);
+
+    function findCorredorNro (carrera_id: GUID_ID; elNro: integer):boolean;
 
   end;
 
@@ -181,7 +200,34 @@ begin
   Corredores.Edit;
   Corredorescarrera_id.AsString:= carrera_id;
   Corredores.Post;
+end;
 
+procedure TDM_Corredores.AsignarLlegada(horaLlegada: TTime);
+begin
+  Corredores.Edit;
+  CorredoreshLlegada.AsDateTime:= horaLlegada;
+  Corredores.Post;
+  Save;
+end;
+
+function TDM_Corredores.findCorredorNro(carrera_id: GUID_ID; elNro: integer
+  ): boolean;
+begin
+  DM_General.ReiniciarTabla(Corredores);
+  with qCorrPorNro do
+  begin
+    if active then close;
+    ParamByName('carrera_id').AsString:=carrera_id;
+    ParamByName('nro').AsInteger:= elNro;
+    Open;
+    if RecordCount > 0 then
+    begin
+      Corredores.LoadFromDataSet(qCorrPorNro, 0, lmAppend);
+      Result:= True;
+    end
+    else
+      Result:= False;
+  end;
 end;
 
 

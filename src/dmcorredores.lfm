@@ -1157,4 +1157,180 @@ object DM_Corredores: TDM_Corredores
       Required = False
     end
   end
+  object qCorrPorNro: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT *'
+      'FROM Corredores'
+      'WHERE (bVisible =  1) '
+      ' and (carrera_id = :carrera_id)'
+      'and (numero = :nro)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nro'
+        ParamType = ptUnknown
+      end>
+    left = 88
+    top = 528
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nro'
+        ParamType = ptUnknown
+      end>
+    object SELCorredoresID4: TStringField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object SELCorredoresPERSONA_ID4: TStringField
+      FieldKind = fkData
+      FieldName = 'PERSONA_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object SELCorredoresCARRERA_ID4: TStringField
+      FieldKind = fkData
+      FieldName = 'CARRERA_ID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object SELCorredoresNUMERO4: TLongintField
+      FieldKind = fkData
+      FieldName = 'NUMERO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresTALLE_ID4: TLongintField
+      FieldKind = fkData
+      FieldName = 'TALLE_ID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresBINVITADO4: TSmallintField
+      FieldKind = fkData
+      FieldName = 'BINVITADO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresBPAGADO4: TSmallintField
+      FieldKind = fkData
+      FieldName = 'BPAGADO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresIMPORTE4: TFloatField
+      FieldKind = fkData
+      FieldName = 'IMPORTE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object SELCorredoresRECIBO4: TStringField
+      FieldKind = fkData
+      FieldName = 'RECIBO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object SELCorredoresFPAGO4: TDateField
+      FieldKind = fkData
+      FieldName = 'FPAGO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresBLISTAESPERA4: TSmallintField
+      FieldKind = fkData
+      FieldName = 'BLISTAESPERA'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresBVISIBLE4: TSmallintField
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresDISTANCIA_ID4: TLongintField
+      FieldKind = fkData
+      FieldName = 'DISTANCIA_ID'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresCATEGORIA_ID1: TLongintField
+      FieldKind = fkData
+      FieldName = 'CATEGORIA_ID'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SELCorredoresHLLEGADA1: TTimeField
+      FieldKind = fkData
+      FieldName = 'HLLEGADA'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+  end
 end

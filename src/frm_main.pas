@@ -63,6 +63,7 @@ type
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
     procedure carr_DELExecute(Sender: TObject);
+    procedure carr_llegadaExecute(Sender: TObject);
     procedure carr_NEWExecute(Sender: TObject);
     procedure carr_SELExecute(Sender: TObject);
     procedure carr_UPDExecute(Sender: TObject);
@@ -106,6 +107,7 @@ uses
 , frm_corredoresae
 , dmcorredores
 , dmMain
+, frm_llegadas
 ;
 
 
@@ -287,6 +289,7 @@ begin
   end;
 end;
 
+
 procedure TfrmMain.carr_UPDExecute(Sender: TObject);
 var
   scrBus: TfrmBusquedaCarreras;
@@ -366,6 +369,23 @@ begin
   end;
 end;
 
+
+(*******************************************************************************
+***  LLEGADAS
+*******************************************************************************)
+
+procedure TfrmMain.carr_llegadaExecute(Sender: TObject);
+var
+  scr: TfrmLlegadas;
+begin
+  scr:= TfrmLlegadas.Create(self);
+  try
+    scr.carreraID:= _carreraActiva;
+    scr.ShowModal;
+  finally
+    scr.Free;
+  end;
+end;
 
 end.
 

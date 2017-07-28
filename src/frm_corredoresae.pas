@@ -5,9 +5,9 @@ unit frm_corredoresae;
 interface
 
 uses
-  Classes, SysUtils, db, FileUtil, rxlookup, Forms, Controls, Graphics, Dialogs,
-  ExtCtrls, StdCtrls, Buttons, DbCtrls, DBGrids, DBExtCtrls, dmgeneral,
-  dmPersonas, dmcorredores, dmcarreras;
+  Classes, SysUtils, db, FileUtil, rxlookup, DBDateTimePicker, Forms, Controls,
+  Graphics, Dialogs, ExtCtrls, StdCtrls, Buttons, DbCtrls, DBGrids, DBExtCtrls,
+  dmgeneral, dmPersonas, dmcorredores, dmcarreras;
 
 type
 
@@ -21,6 +21,7 @@ type
     DBCheckBox2: TDBCheckBox;
     DBCheckBox3: TDBCheckBox;
     DBDateEdit1: TDBDateEdit;
+    DBDateTimePicker1: TDBDateTimePicker;
     DBEdit4: TDBEdit;
     DBEdit5: TDBEdit;
     DBEdit6: TDBEdit;
@@ -46,6 +47,7 @@ type
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
+    Label14: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;

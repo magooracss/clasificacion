@@ -414,6 +414,7 @@ object frmMain: TfrmMain
       Category = 'Carreras'
       Caption = 'Llegada'
       ImageIndex = 20
+      OnExecute = carr_llegadaExecute
     end
   end
   object DS_Grilla: TDataSource
