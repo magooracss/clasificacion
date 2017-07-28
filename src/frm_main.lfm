@@ -19,8 +19,8 @@ object frmMain: TfrmMain
   LCLVersion = '1.6.4.0'
   object st: TStatusBar
     Left = 0
-    Height = 24
-    Top = 394
+    Height = 28
+    Top = 390
     Width = 966
     Panels = <    
       item
@@ -95,6 +95,19 @@ object frmMain: TfrmMain
       Top = 2
       Action = carr_llegada
     end
+    object ToolButton9: TToolButton
+      Left = 503
+      Height = 80
+      Top = 2
+      Width = 8
+      Caption = 'ToolButton9'
+      Style = tbsSeparator
+    end
+    object ToolButton10: TToolButton
+      Left = 511
+      Top = 2
+      Action = Listados
+    end
   end
   object edCarrera: TEdit
     Left = 0
@@ -117,7 +130,7 @@ object frmMain: TfrmMain
   end
   object RxDBGrid1: TRxDBGrid
     Left = 0
-    Height = 280
+    Height = 276
     Top = 114
     Width = 966
     TitleButtons = False
@@ -321,11 +334,14 @@ object frmMain: TfrmMain
         Action = perDEL
       end
     end
-    object MenuItem19: TMenuItem
+    object MenuItem21: TMenuItem
       Caption = 'Tiempos'
-      object MenuItem20: TMenuItem
+      object MenuItem23: TMenuItem
         Action = carr_llegada
       end
+    end
+    object MenuItem22: TMenuItem
+      Action = Listados
     end
   end
   object ActionList1: TActionList
@@ -415,6 +431,12 @@ object frmMain: TfrmMain
       Caption = 'Llegada'
       ImageIndex = 20
       OnExecute = carr_llegadaExecute
+    end
+    object Listados: TAction
+      Category = 'Listados'
+      Caption = 'Listados'
+      ImageIndex = 18
+      OnExecute = ListadosExecute
     end
   end
   object DS_Grilla: TDataSource

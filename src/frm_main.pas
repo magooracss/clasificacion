@@ -13,6 +13,7 @@ type
   { TfrmMain }
 
   TfrmMain = class(TForm)
+    Listados: TAction;
     carr_llegada: TAction;
     corrUPD: TAction;
     corrDel: TAction;
@@ -35,6 +36,9 @@ type
     MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem20: TMenuItem;
+    MenuItem21: TMenuItem;
+    MenuItem22: TMenuItem;
+    MenuItem23: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem9: TMenuItem;
     perDEL: TAction;
@@ -55,6 +59,7 @@ type
     st: TStatusBar;
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
+    ToolButton10: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
@@ -62,6 +67,7 @@ type
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
+    ToolButton9: TToolButton;
     procedure carr_DELExecute(Sender: TObject);
     procedure carr_llegadaExecute(Sender: TObject);
     procedure carr_NEWExecute(Sender: TObject);
@@ -73,6 +79,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure ListadosExecute(Sender: TObject);
     procedure perDELExecute(Sender: TObject);
     procedure perNEWExecute(Sender: TObject);
     procedure perUPDExecute(Sender: TObject);
@@ -108,6 +115,7 @@ uses
 , dmcorredores
 , dmMain
 , frm_llegadas
+, frm_listados
 ;
 
 
@@ -117,6 +125,7 @@ procedure TfrmMain.FormShow(Sender: TObject);
 begin
   initialise;
 end;
+
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
@@ -379,6 +388,24 @@ var
   scr: TfrmLlegadas;
 begin
   scr:= TfrmLlegadas.Create(self);
+  try
+    scr.carreraID:= _carreraActiva;
+    scr.ShowModal;
+  finally
+    scr.Free;
+  end;
+end;
+
+
+
+(*******************************************************************************
+***  LISTADOS
+*******************************************************************************)
+procedure TfrmMain.ListadosExecute(Sender: TObject);
+var
+  scr: TfrmListados;
+begin
+  scr:= TfrmListados.Create(self);
   try
     scr.carreraID:= _carreraActiva;
     scr.ShowModal;

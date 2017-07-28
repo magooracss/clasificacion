@@ -19,17 +19,17 @@ object frmLlegadas: TfrmLlegadas
   LCLVersion = '1.6.4.0'
   object Panel1: TPanel
     Left = 0
-    Height = 50
-    Top = 314
+    Height = 52
+    Top = 312
     Width = 629
     Align = alBottom
-    ClientHeight = 50
+    ClientHeight = 52
     ClientWidth = 629
     TabOrder = 2
     object btnSalir: TBitBtn
       Left = 16
       Height = 46
-      Top = 0
+      Top = 2
       Width = 120
       Caption = 'Salir'
       Glyph.Data = {
@@ -74,7 +74,7 @@ object frmLlegadas: TfrmLlegadas
   end
   object PCBusquedas: TPageControl
     Left = 0
-    Height = 168
+    Height = 166
     Top = 0
     Width = 629
     ActivePage = tabNro
@@ -83,7 +83,7 @@ object frmLlegadas: TfrmLlegadas
     TabOrder = 0
     object tabNro: TTabSheet
       Caption = 'Número'
-      ClientHeight = 136
+      ClientHeight = 134
       ClientWidth = 621
       object edNro: TEdit
         Left = 56
@@ -135,7 +135,7 @@ object frmLlegadas: TfrmLlegadas
   object Panel2: TPanel
     Left = 0
     Height = 146
-    Top = 168
+    Top = 166
     Width = 629
     Align = alBottom
     ClientHeight = 146

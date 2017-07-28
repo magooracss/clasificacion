@@ -18,7 +18,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="10"/>
+      <BuildNr Value="11"/>
       <Language Value="040A"/>
       <StringTable CompanyName="RACSS Programación de Carlos Enrique Rodriguez" LegalCopyright="Carlos Enrique Rodriguez" LegalTrademarks="RACSS Programación de Carlos Enrique Rodriguez" ProductVersion=""/>
     </VersionInfo>
@@ -56,7 +56,7 @@
         <PackageName Value="LCL"/>
       </Item7>
     </RequiredPackages>
-    <Units Count="19">
+    <Units Count="22">
       <Unit0>
         <Filename Value="clasificador.pas"/>
         <IsPartOfProject Value="True"/>
@@ -180,6 +180,26 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit18>
+      <Unit19>
+        <Filename Value="frm_listados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmListados"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="rpt_clasificaciones.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="rptClasificaciones"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="dmlistados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_Listados"/>
+        <ResourceBaseClass Value="DataModule"/>
+      </Unit21>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

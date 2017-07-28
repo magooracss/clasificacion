@@ -1,0 +1,334 @@
+object DM_Listados: TDM_Listados
+  OldCreateOrder = False
+  Height = 740
+  HorizontalOffset = 556
+  VerticalOffset = 151
+  Width = 635
+  object qClasificaciones: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT  C.DISTANCIA_ID '
+      '       ,D.NOMBRE as DISTANCIA'
+      '       ,D.HLARGADA'
+      '       ,C.CATEGORIA_ID'
+      '      , CA.nombre as CATEGORIA'
+      '       ,C.ID as CORREDOR_ID'
+      '       ,C.NUMERO'
+      '       ,C.HLLEGADA'
+      '       ,C.PERSONA_ID'
+      '       ,(P.APELLIDOS || '' '' || P.NOMBRES) as ApyNom'
+      '       ,  0 as tiempototal'
+      '       , DATEDIFF (SECOND FROM D.HLARGADA to C.HLLEGADA ) as TiempoSegundos'
+      'FROM CORREDORES C'
+      '     left join PERSONAS P ON P.ID = C.PERSONA_ID'
+      '     left join DISTANCIAS D ON D.ID = C.DISTANCIA_ID'
+      '     left join CATEGORIASCARRERA CC ON CC.ID = C.Categoria_id'
+      '     left join CATEGORIAS CA ON CA.ID = CC.categoria_id'
+      '     '
+      'WHERE  (C.BVISIBLE = 1)'
+      '   and (C.CARRERA_ID = :carrera_id)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end>
+    left = 80
+    top = 240
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end>
+    object qClasificacionesDISTANCIA_ID: TLongintField
+      FieldKind = fkData
+      FieldName = 'DISTANCIA_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClasificacionesDISTANCIA: TStringField
+      FieldKind = fkData
+      FieldName = 'DISTANCIA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qClasificacionesHLARGADA: TTimeField
+      FieldKind = fkData
+      FieldName = 'HLARGADA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClasificacionesCATEGORIA_ID: TLongintField
+      FieldKind = fkData
+      FieldName = 'CATEGORIA_ID'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClasificacionesCORREDOR_ID: TStringField
+      FieldKind = fkData
+      FieldName = 'CORREDOR_ID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qClasificacionesNUMERO: TLongintField
+      FieldKind = fkData
+      FieldName = 'NUMERO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClasificacionesHLLEGADA: TTimeField
+      FieldKind = fkData
+      FieldName = 'HLLEGADA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClasificacionesPERSONA_ID: TStringField
+      FieldKind = fkData
+      FieldName = 'PERSONA_ID'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qClasificacionesAPYNOM: TStringField
+      FieldKind = fkData
+      FieldName = 'APYNOM'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 2404
+    end
+    object qClasificacionesTIEMPOTOTAL: TFloatField
+      FieldKind = fkData
+      FieldName = 'TIEMPOTOTAL'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qClasificacionesTIEMPOSEGUNDOS: TLargeintField
+      FieldKind = fkData
+      FieldName = 'TIEMPOSEGUNDOS'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object qClasificacionesCATEGORIA: TStringField
+      FieldKind = fkData
+      FieldName = 'CATEGORIA'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+  end
+  object ResultadosCarrera: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'distancia_id'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'distancia'
+        DataType = ftString
+        Size = 500
+      end    
+      item
+        Name = 'hLargada'
+        DataType = ftTime
+      end    
+      item
+        Name = 'categoria_id'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'categoria'
+        DataType = ftString
+        Size = 500
+      end    
+      item
+        Name = 'corredor_id'
+        DataType = ftString
+        Size = 38
+      end    
+      item
+        Name = 'numero'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'hLlegada'
+        DataType = ftTime
+      end    
+      item
+        Name = 'persona_id'
+        DataType = ftString
+        Size = 38
+      end    
+      item
+        Name = 'ApyNom'
+        DataType = ftString
+        Size = 600
+      end    
+      item
+        Name = 'TiempoTotal'
+        DataType = ftTime
+      end    
+      item
+        Name = 'TiempoSegundos'
+        DataType = ftLargeint
+      end>
+    PacketRecords = 0
+    left = 77
+    top = 53
+    object ResultadosCarreradistancia_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'distancia_id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ResultadosCarreradistancia: TStringField
+      FieldKind = fkData
+      FieldName = 'distancia'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object ResultadosCarrerahLargada: TTimeField
+      FieldKind = fkData
+      FieldName = 'hLargada'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ResultadosCarreracategoria_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'categoria_id'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ResultadosCarreracategoria: TStringField
+      FieldKind = fkData
+      FieldName = 'categoria'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object ResultadosCarreracorredor_id: TStringField
+      FieldKind = fkData
+      FieldName = 'corredor_id'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object ResultadosCarreranumero: TLongintField
+      FieldKind = fkData
+      FieldName = 'numero'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ResultadosCarrerahLlegada: TTimeField
+      FieldKind = fkData
+      FieldName = 'hLlegada'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ResultadosCarrerapersona_id: TStringField
+      FieldKind = fkData
+      FieldName = 'persona_id'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object ResultadosCarreraApyNom: TStringField
+      FieldKind = fkData
+      FieldName = 'ApyNom'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 600
+    end
+    object ResultadosCarreraTiempoTotal: TTimeField
+      FieldKind = fkData
+      FieldName = 'TiempoTotal'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ResultadosCarreraTiempoSegundos: TLargeintField
+      FieldKind = fkData
+      FieldName = 'TiempoSegundos'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+end

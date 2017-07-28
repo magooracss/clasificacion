@@ -1,0 +1,383 @@
+object rptClasificaciones: TrptClasificaciones
+  Left = 556
+  Height = 696
+  Top = 151
+  Width = 1013
+  Caption = 'rptClasificaciones'
+  ClientHeight = 696
+  ClientWidth = 1013
+  OnCreate = FormCreate
+  LCLVersion = '1.6.4.0'
+  object rep_Clasificaciones: TRLReport
+    Left = 1
+    Height = 1123
+    Top = 0
+    Width = 794
+    DataSource = ds
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Margins.LeftMargin = 5
+    Margins.RightMargin = 5
+    RealBounds.Left = 0
+    RealBounds.Top = 0
+    RealBounds.Width = 0
+    RealBounds.Height = 0
+    object RLBand1: TRLBand
+      Left = 19
+      Height = 80
+      Top = 38
+      Width = 756
+      BandType = btHeader
+      RealBounds.Left = 0
+      RealBounds.Top = 0
+      RealBounds.Width = 0
+      RealBounds.Height = 0
+      object RLSystemInfo1: TRLSystemInfo
+        Left = 664
+        Height = 16
+        Top = 16
+        Width = 39
+        Alignment = taRightJustify
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+      end
+      object RLLabel1: TRLLabel
+        Left = 225
+        Height = 29
+        Top = 32
+        Width = 181
+        Caption = 'Clasificaciones'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Arial'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+      end
+    end
+    object RLGroup1: TRLGroup
+      Left = 19
+      Height = 193
+      Top = 118
+      Width = 756
+      AllowedBands = [btColumnHeader]
+      DataFields = 'distancia_id'
+      RealBounds.Left = 0
+      RealBounds.Top = 0
+      RealBounds.Width = 0
+      RealBounds.Height = 0
+      object RLBand2: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 756
+        BandType = btColumnHeader
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        object RLDBText1: TRLDBText
+          Left = 116
+          Height = 24
+          Top = 11
+          Width = 91
+          DataField = 'distancia'
+          DataSource = ds
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -20
+          Font.Name = 'Arial'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLLabel2: TRLLabel
+          Left = 8
+          Height = 24
+          Top = 11
+          Width = 106
+          Caption = 'Distancia: '
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -20
+          Font.Name = 'Arial'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+      end
+      object RLGroup2: TRLGroup
+        Left = 0
+        Height = 112
+        Top = 40
+        Width = 756
+        AllowedBands = [btColumnHeader, btDetail]
+        DataFields = 'distancia_id;categoria_id'
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        object RLBand3: TRLBand
+          Left = 0
+          Height = 64
+          Top = 0
+          Width = 756
+          BandType = btColumnHeader
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+          object RLDBText2: TRLDBText
+            Left = 120
+            Height = 24
+            Top = 8
+            Width = 94
+            DataField = 'categoria'
+            DataSource = ds
+            Font.CharSet = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -20
+            Font.Name = 'Arial'
+            Font.Pitch = fpVariable
+            Font.Quality = fqDraft
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel3: TRLLabel
+            Left = 8
+            Height = 24
+            Top = 8
+            Width = 110
+            Caption = 'Categoria: '
+            Font.CharSet = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -20
+            Font.Name = 'Arial'
+            Font.Pitch = fpVariable
+            Font.Quality = fqDraft
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel4: TRLLabel
+            Left = 16
+            Height = 19
+            Top = 40
+            Width = 67
+            Caption = 'Numero'
+            Font.CharSet = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -17
+            Font.Name = 'Arial'
+            Font.Pitch = fpVariable
+            Font.Quality = fqDraft
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel5: TRLLabel
+            Left = 96
+            Height = 19
+            Top = 45
+            Width = 157
+            Caption = 'Apellido y Nombres'
+            Font.CharSet = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -17
+            Font.Name = 'Arial'
+            Font.Pitch = fpVariable
+            Font.Quality = fqDraft
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel6: TRLLabel
+            Left = 464
+            Height = 19
+            Top = 40
+            Width = 69
+            Caption = 'Largada'
+            Font.CharSet = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -17
+            Font.Name = 'Arial'
+            Font.Pitch = fpVariable
+            Font.Quality = fqDraft
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel7: TRLLabel
+            Left = 552
+            Height = 19
+            Top = 40
+            Width = 66
+            Caption = 'Llegada'
+            Font.CharSet = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -17
+            Font.Name = 'Arial'
+            Font.Pitch = fpVariable
+            Font.Quality = fqDraft
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLLabel8: TRLLabel
+            Left = 640
+            Height = 19
+            Top = 40
+            Width = 106
+            Caption = 'Tiempo Total'
+            Font.CharSet = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -17
+            Font.Name = 'Arial'
+            Font.Pitch = fpVariable
+            Font.Quality = fqDraft
+            Font.Style = [fsBold]
+            ParentFont = False
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+        end
+        object RLBand4: TRLBand
+          Left = 0
+          Height = 22
+          Top = 64
+          Width = 756
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+          object RLDBText3: TRLDBText
+            Left = 16
+            Height = 16
+            Top = 4
+            Width = 47
+            DataField = 'numero'
+            DataSource = ds
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText4: TRLDBText
+            Left = 96
+            Height = 16
+            Top = 4
+            Width = 54
+            DataField = 'ApyNom'
+            DataSource = ds
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText5: TRLDBText
+            Left = 552
+            Height = 16
+            Top = 4
+            Width = 56
+            DataField = 'hLlegada'
+            DataSource = ds
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText6: TRLDBText
+            Left = 640
+            Height = 16
+            Top = 4
+            Width = 74
+            DataField = 'TiempoTotal'
+            DataSource = ds
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+          object RLDBText7: TRLDBText
+            Left = 464
+            Height = 16
+            Top = 4
+            Width = 57
+            DataField = 'hLargada'
+            DataSource = ds
+            RealBounds.Left = 0
+            RealBounds.Top = 0
+            RealBounds.Width = 0
+            RealBounds.Height = 0
+          end
+        end
+      end
+    end
+  end
+  object RLXLSXFilter1: TRLXLSXFilter
+    Options = [xfoFindValueCells]
+    DisplayName = 'Planilla Excel'
+    left = 376
+    top = 496
+  end
+  object RLXLSFilter1: TRLXLSFilter
+    Options = [foFindValueCells]
+    PageSetup.HeaderMargin = 0
+    PageSetup.FooterMargin = 0
+    DisplayName = 'Planilla Excel 97-2013'
+    left = 294
+    top = 496
+  end
+  object RLPDFFilter1: TRLPDFFilter
+    DocumentInfo.Creator = 'FortesReport Community Edition v4.0 \251 Copyright © 1999-2015 Fortes Informática'
+    DocumentInfo.Producer = 'www.racss.com.ar'
+    DisplayName = 'Documento PDF'
+    left = 232
+    top = 496
+  end
+  object ds: TDataSource
+    DataSet = DM_Listados.ResultadosCarrera
+    left = 152
+    top = 496
+  end
+end
