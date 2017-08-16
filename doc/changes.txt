@@ -1,0 +1,16 @@
+= CLASIFICACIONES =
+===================
+
+Versión 1.2 - 16/08/2017 -
+==========================
+
+UPD: Pantalla de llegadas, ahora muestra en forma descendente según la hora de llegada a todos los corredores de una carrera
+UPD: Al dar enter al número de corredor, se almacena el tiempo y se deja disponible la pantalla para cargar un nuevo corredor
+
+
+Referencias
+===========
+NEW: Cararacterística nueva en el programa
+UPD: Característica modificada en el programa
+FIX: Problema corregido 
+DEL: Característica eliminada del programa

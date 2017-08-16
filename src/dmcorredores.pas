@@ -29,7 +29,12 @@ type
     Corredorespersona_id: TStringField;
     Corredoresrecibo: TStringField;
     Corredorestalle_id: TLongintField;
+    qCorrPorLLegadaAPYNOM: TStringField;
+    qCorrPorLLegadaHLLEGADA: TTimeField;
+    qCorrPorLLegadaID: TStringField;
+    qCorrPorLLegadaNUMERO: TLongintField;
     qCorrPorNro: TZQuery;
+    qCorrPorLLegada: TZQuery;
     SELCorredoresBINVITADO4: TSmallintField;
     SELCorredoresBLISTAESPERA4: TSmallintField;
     SELCorredoresBPAGADO4: TSmallintField;
@@ -123,6 +128,7 @@ type
     procedure AsignarLlegada (horaLlegada: TTime);
 
     function findCorredorNro (carrera_id: GUID_ID; elNro: integer):boolean;
+    procedure LLegadasCarrera (carrera_id: GUID_ID);
 
   end;
 
@@ -227,6 +233,16 @@ begin
     end
     else
       Result:= False;
+  end;
+end;
+
+procedure TDM_Corredores.LLegadasCarrera(carrera_id: GUID_ID);
+begin
+  with qCorrPorLLegada do
+  begin
+    if active then close;
+    ParamByName('carrera_id').AsString:= carrera_id;
+    Open;
   end;
 end;
 

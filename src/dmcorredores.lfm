@@ -1333,4 +1333,71 @@ object DM_Corredores: TDM_Corredores
       Required = False
     end
   end
+  object qCorrPorLLegada: TZQuery
+    Connection = DM_General.cnxBase
+    SQL.Strings = (
+      'SELECT'
+      '        C.id '
+      '       , C.HLLEGADA'
+      '       , C.NUMERO'
+      '       , (P.APELLIDOS || '' '' || P.NOMBRES) as ApyNom '
+      'FROM Corredores C'
+      '        left join PERSONAS P ON C.PERSONA_ID = P.ID'
+      'WHERE (C.bVisible =  1) '
+      ' and (C.carrera_id = :carrera_id)'
+      'ORDER BY C.HLLEGADA DESC'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end>
+    left = 272
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'carrera_id'
+        ParamType = ptUnknown
+      end>
+    object qCorrPorLLegadaID: TStringField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qCorrPorLLegadaHLLEGADA: TTimeField
+      FieldKind = fkData
+      FieldName = 'HLLEGADA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qCorrPorLLegadaNUMERO: TLongintField
+      FieldKind = fkData
+      FieldName = 'NUMERO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qCorrPorLLegadaAPYNOM: TStringField
+      FieldKind = fkData
+      FieldName = 'APYNOM'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 2404
+    end
+  end
 end

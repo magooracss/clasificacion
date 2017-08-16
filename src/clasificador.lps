@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="14" Y="21"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
       </Unit0>
       <Unit1>
         <Filename Value="frm_main.pas"/>
@@ -18,13 +18,14 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="389"/>
-        <CursorPos X="14" Y="413"/>
-        <UsageCount Value="47"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="331"/>
+        <CursorPos Y="337"/>
+        <UsageCount Value="48"/>
         <Bookmarks Count="1">
           <Item0 X="3" Y="264" ID="1"/>
         </Bookmarks>
+        <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="dmgeneral.pas"/>
@@ -33,9 +34,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <CursorPos X="81" Y="3"/>
-        <UsageCount Value="47"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="47" Y="10"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -45,7 +46,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="8"/>
         <CursorPos X="4" Y="20"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
       </Unit3>
       <Unit4>
         <Filename Value="versioninfo.pas"/>
@@ -54,7 +55,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
       </Unit4>
       <Unit5>
         <Filename Value="frm_about.pas"/>
@@ -64,7 +65,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
       </Unit5>
       <Unit6>
         <Filename Value="frm_personaae.pas"/>
@@ -75,7 +76,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="68"/>
         <CursorPos X="29" Y="76"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
       </Unit6>
       <Unit7>
         <Filename Value="dmpersonas.pas"/>
@@ -87,7 +88,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="129"/>
         <CursorPos X="41" Y="82"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
       </Unit7>
       <Unit8>
         <Filename Value="frm_busquedapersonas.pas"/>
@@ -98,7 +99,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="101"/>
         <CursorPos X="16" Y="114"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="47"/>
       </Unit8>
       <Unit9>
         <Filename Value="dmcarreras.pas"/>
@@ -109,7 +110,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="152"/>
         <CursorPos X="47" Y="175"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit9>
       <Unit10>
         <Filename Value="frm_carrerasae.pas"/>
@@ -120,7 +121,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="157"/>
         <CursorPos X="44" Y="173"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit10>
       <Unit11>
         <Filename Value="frm_busquedacarreras.pas"/>
@@ -131,7 +132,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="27"/>
         <CursorPos X="8" Y="69"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="45"/>
       </Unit11>
       <Unit12>
         <Filename Value="frm_distanciasae.pas"/>
@@ -142,7 +143,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="59"/>
         <CursorPos X="7" Y="65"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
       </Unit12>
       <Unit13>
         <Filename Value="frm_categoriascarreraae.pas"/>
@@ -153,7 +154,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
         <CursorPos X="14" Y="89"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="38"/>
       </Unit13>
       <Unit14>
         <Filename Value="frm_categoriasae.pas"/>
@@ -163,7 +164,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="54"/>
         <CursorPos X="16" Y="64"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="36"/>
       </Unit14>
       <Unit15>
         <Filename Value="dmcorredores.pas"/>
@@ -171,10 +172,12 @@
         <ComponentName Value="DM_Corredores"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="211"/>
-        <CursorPos X="24" Y="216"/>
-        <UsageCount Value="35"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="189"/>
+        <CursorPos X="45" Y="197"/>
+        <UsageCount Value="36"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit15>
       <Unit16>
         <Filename Value="frm_corredoresae.pas"/>
@@ -185,7 +188,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="134"/>
         <CursorPos X="54" Y="134"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="34"/>
       </Unit16>
       <Unit17>
         <Filename Value="dmmain.pas"/>
@@ -194,8 +197,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmMain"/>
+        <TopLine Value="13"/>
         <CursorPos X="59" Y="11"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="30"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit17>
@@ -205,10 +209,12 @@
         <ComponentName Value="frmLlegadas"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="79"/>
-        <CursorPos X="20" Y="80"/>
-        <UsageCount Value="28"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="84"/>
+        <CursorPos X="15" Y="95"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit18>
       <Unit19>
         <Filename Value="frm_listados.pas"/>
@@ -219,7 +225,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="101"/>
         <CursorPos X="46" Y="116"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="28"/>
       </Unit19>
       <Unit20>
         <Filename Value="rpt_clasificaciones.pas"/>
@@ -230,7 +236,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="33"/>
         <CursorPos X="109" Y="27"/>
-        <UsageCount Value="26"/>
+        <UsageCount Value="27"/>
       </Unit20>
       <Unit21>
         <Filename Value="dmlistados.pas"/>
@@ -241,14 +247,15 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="66"/>
         <CursorPos X="47" Y="73"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="26"/>
       </Unit21>
       <Unit22>
         <Filename Value="..\..\..\app\lazarus\components\zeoslib\src\dbc\ZDbcInterbase6Utils.pas"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="825"/>
-        <CursorPos X="49" Y="834"/>
+        <CursorPos Y="837"/>
         <UsageCount Value="11"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit22>
       <Unit23>
@@ -366,6 +373,127 @@
         <UsageCount Value="11"/>
       </Unit38>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="216" Column="24" TopLine="211"/>
+      </Position1>
+      <Position2>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="232" Column="24" TopLine="227"/>
+      </Position2>
+      <Position3>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="231" Column="24" TopLine="226"/>
+      </Position3>
+      <Position4>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="230" Column="24" TopLine="225"/>
+      </Position4>
+      <Position5>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="229" Column="24" TopLine="224"/>
+      </Position5>
+      <Position6>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="228" Column="24" TopLine="223"/>
+      </Position6>
+      <Position7>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="227" Column="24" TopLine="222"/>
+      </Position7>
+      <Position8>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="226" Column="24" TopLine="221"/>
+      </Position8>
+      <Position9>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="225" Column="24" TopLine="220"/>
+      </Position9>
+      <Position10>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="224" Column="24" TopLine="219"/>
+      </Position10>
+      <Position11>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="223" Column="24" TopLine="218"/>
+      </Position11>
+      <Position12>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="222" Column="24" TopLine="217"/>
+      </Position12>
+      <Position13>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="221" Column="24" TopLine="216"/>
+      </Position13>
+      <Position14>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="220" Column="24" TopLine="215"/>
+      </Position14>
+      <Position15>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="219" Column="24" TopLine="214"/>
+      </Position15>
+      <Position16>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="218" Column="24" TopLine="213"/>
+      </Position16>
+      <Position17>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="217" Column="24" TopLine="212"/>
+      </Position17>
+      <Position18>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="218" Column="24" TopLine="213"/>
+      </Position18>
+      <Position19>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="219" Column="24" TopLine="214"/>
+      </Position19>
+      <Position20>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="130" Column="53" TopLine="114"/>
+      </Position20>
+      <Position21>
+        <Filename Value="frm_llegadas.pas"/>
+        <Caret Line="81" Column="13" TopLine="70"/>
+      </Position21>
+      <Position22>
+        <Filename Value="frm_llegadas.pas"/>
+        <Caret Line="80" Column="13" TopLine="69"/>
+      </Position22>
+      <Position23>
+        <Filename Value="frm_llegadas.pas"/>
+        <Caret Line="79" Column="13" TopLine="68"/>
+      </Position23>
+      <Position24>
+        <Filename Value="frm_llegadas.pas"/>
+        <Caret Line="78" Column="13" TopLine="67"/>
+      </Position24>
+      <Position25>
+        <Filename Value="frm_llegadas.pas"/>
+        <Caret Line="79" Column="46" TopLine="65"/>
+      </Position25>
+      <Position26>
+        <Filename Value="frm_llegadas.pas"/>
+        <Caret Line="109" TopLine="97"/>
+      </Position26>
+      <Position27>
+        <Filename Value="frm_llegadas.pas"/>
+        <Caret Line="55" Column="7" TopLine="37"/>
+      </Position27>
+      <Position28>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="244" Column="10" TopLine="221"/>
+      </Position28>
+      <Position29>
+        <Filename Value="frm_llegadas.pas"/>
+        <Caret Line="52" Column="19" TopLine="52"/>
+      </Position29>
+      <Position30>
+        <Filename Value="dmcorredores.pas"/>
+        <Caret Line="245" Column="10" TopLine="222"/>
+      </Position30>
+    </JumpHistory>
   </ProjectSession>
 </CONFIG>
